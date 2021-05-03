@@ -17,12 +17,15 @@
 - Sobre (tela)
 - SimulationEnv (QGraphicsView)
 - FormigueiroUnity (Um circulo de cor ??)
+  > - bool formigasGeradas
+  > - int estoque
 - ComidaUnity (Um circulo de cor ??)
 - Formiga
   > - int id
   > - int objetivo (0 -> Comida, 1 -> Formigueiro)
 - Rastro (Pode ficar visível, ou invisível pelas configs)
   > - int id
+  > - int passosRestantes
   - Para a comida
   - Para o formigueiro
 
@@ -50,3 +53,4 @@ Cada unidade de forigueiro precisa de 2 unidades de comida para ficar bem. a sim
 - A formiga anda a mesma quantidade de pixels que seu tamanho por passo na simulação.
 - Uma formiga só pode depositar comida em um formigueiro que não está preenchido
 - Cada unidade de formigueiro gera 10 formigas
+- O caminho some depois de X passos da simulação
