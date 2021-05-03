@@ -1,7 +1,7 @@
 # Tarefas
 
 - Definir a estrutura de classes
-- Fazer um desing das partes que vão haver(Menus e afins)
+- Fazer um design das partes que vão haver(Menus e afins)
 - Escolher as imagens para o que foi selecionado no item anterior e as formigas</br></br>
 - Fazer o SimulationEnv
 - Fazer um teste colocando os itens no jogo, formigueiro e comida
@@ -50,6 +50,8 @@ Cada unidade de formigueiro precisa de 2 unidades de comida para ficar bem. a si
 Se apertar CTRL ativa/desativa o modo borracha, que apaga qualquer coisa menos as formigas
 
 ## Definições
+
+Cor do Fundo: #36393f
 
 - A formiga só deixa rastro de caminho para trás quando não está seguindo um caminho.
 - O caminho deve ter ua identificação do ID da formiga que botou ele e um id numérico incremental próprio
