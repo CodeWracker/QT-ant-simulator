@@ -10,7 +10,9 @@
 - Fazer um teste com N formigas surgindo do formigueiro e buscando comida
 - Fazer a tela de Menu
 - Fazer a tela de Configurações</br></br>
-- Fazer a tela de Sobre
+- Fazer a tela de Sobre</br></br>
+- Adicionar a função de borracha
+- Fazer o ajustes necessários
 
 ## Classes
 
@@ -44,6 +46,8 @@ Opções de config:
 Botão de iniciar simulação no menu principal e um botão sobre. Ao clicar no iniciar simulação abre-se uma nova janela com a simulação, de acordo com as configurações definidas, ai clicar na tela com o botão direito no mouse surge uma unidade de formigueiro, ao clicar com o botão esquerdo do mouse surge uma comida; As formigas são geradas ao pressionar enter no inicio da simulação; A simulação pode ser pausada e despausada com a barra de espaço.
 
 Cada unidade de formigueiro precisa de 2 unidades de comida para ficar bem. a simulação acaba quando todas as células do formigueiro estiverem preenchidas
+
+Se apertar CTRL ativa/desativa o modo borracha, que apaga qualquer coisa menos as formigas
 
 ## Definições
 
