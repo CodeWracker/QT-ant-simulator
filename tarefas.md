@@ -38,7 +38,7 @@ Opções de config:
 
 Botão de iniciar simulação no menu principal e um botão sobre. Ao clicar no iniciar simulação abre-se uma nova janela com a simulação (Definir aqui as configurações, antes de iniciar ela? ou ja vem prefab?) ai clicar na rela com o botão direito no mouse surge uma unidade de formigueiro, ao clicar com o botão esquerdo do mouse surge uma comida; As formigas são geradas ao pressionar enter no inicio da simulação; A simulação pode ser pausada e despausada com a barra de espaço.
 
-Cada unidade de forigueiro precisa de 2 unidades de comida para ficar bem. a simulação acaba quando todas as celulas do formigueiro estiverem preenchidas
+Cada unidade de formigueiro precisa de 2 unidades de comida para ficar bem. a simulação acaba quando todas as celulas do formigueiro estiverem preenchidas
 
 ## Definições
 
