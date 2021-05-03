@@ -1,7 +1,7 @@
 # Tarefas
 
 - Definir a estrutura de classes
-- Fzer um desing das partes que vão haver(Menus e afins)
+- Fazer um desing das partes que vão haver(Menus e afins)
 - Escolher as imagens para o que foi selecionado no item anterior e as formigas
 
 ## Classes
