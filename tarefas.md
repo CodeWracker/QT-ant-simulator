@@ -26,6 +26,8 @@
   > - int id
   > - int objetivo (0 -> Comida, 1 -> Formigueiro)
   > - \*imagem(esqueci a classe la) food(Quando pega uma comida, guarda nessa variável, e se ela não estiver nula renderiza o circulo, só que menor em cima da formiga)
+  > - int ultimoIdComida
+  > - int ultimoIdFormigueiro
 - Rastro (Pode ficar visível, ou invisível pelas configs)
   > - int id
   > - int passosRestantes
