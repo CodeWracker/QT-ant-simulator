@@ -8,15 +8,25 @@
 
 - MenuPrincipal (tela)
 - Sobre (tela)
+- SimulationEnv (QGraphicsView)
 - FormigueiroUnity (Um circulo de cor ??)
 - ComidaUnity (Um circulo de cor ??)
 - Formiga
-- Rastro (Pode ficar visível, ou invisivel pelas configs)
+- Rastro (Pode ficar visível, ou invisível pelas configs)
   - Para a comida
   - Para o formigueiro
 
 ## Funcionamento
 
-Opções de config: QUantidade de formigas na simulação
+Opções de config:
+
+- Quantidade de formigas na simulação
+- Visibilidade dos caminhos na simulação
 
 Botão de iniciar simulação no menu principal e um botão sobre. Ao clicar no iniciar simulação abre-se uma nova janela com a simulação (Definir aqui as configurações, antes de iniciar ela? ou ja vem prefab?) ai clicar na rela com o botão direito no mouse surge uma unidade de formigueiro, ao clicar com o botão esquerdo do mouse surge uma comida; As formigas são geradas ao pressionar enter no inicio da simulação; A simulação pode ser pausada e despausada com a barra de espaço.
+
+## Definições
+
+- A formiga só deixa rastro de caminho para trás quando não está seguindo um caminho.
+- O caminho deve ter ua identificação do ID da formiga que botou ele e um id numerico incremental próprio
+- Quando uma formiga for seguir um tipo de caminho ela vai seguir na direção que ele diminui o seu ID, para poder chegar no objetivo
