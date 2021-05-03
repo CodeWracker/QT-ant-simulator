@@ -2,16 +2,13 @@
 
 - Definir a estrutura de classes
 - Fazer um desing das partes que vão haver(Menus e afins)
-- Escolher as imagens para o que foi selecionado no item anterior e as formigas
-  </br>
+- Escolher as imagens para o que foi selecionado no item anterior e as formigas</br></br>
 - Fazer o SimulationEnv
 - Fazer um teste colocando os itens no jogo, formigueiro e comida
 - Fazer um teste com uma formiga andando e criando rastros
-- Fazer um teste com dus formigas andando, criando rastros e seguindo eles
-  </br>
+- Fazer um teste com dus formigas andando, criando rastros e seguindo eles</br></br>
 - Fazer um teste com N formigas surgindo do formigueiro e buscando comida
-- Fazer a tela de Menu
-  </br>
+- Fazer a tela de Menu</br></br>
 - Fazer a tela de Sobre
 
 ## Classes
