@@ -172,28 +172,29 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_rsc.cpp
 release\qrc_rsc.cpp: ..\Ant-Simulator\rsc.qrc \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\bin\rcc.exe \
-		..\Ant-Simulator\resources\AboutDesign.jpg \
-		..\Ant-Simulator\resources\Arrow.png \
-		..\Ant-Simulator\resources\AboutBtn.png \
-		..\Ant-Simulator\resources\QuitBtn.png \
-		..\Ant-Simulator\resources\SimulateBtn.png \
-		..\Ant-Simulator\resources\AboutClickedBtn.png \
-		..\Ant-Simulator\resources\ConfigsBtn.png \
-		..\Ant-Simulator\resources\linkedin.png \
-		..\Ant-Simulator\resources\stackClicked.png \
-		..\Ant-Simulator\resources\ConfigsClickedBtn.png \
-		..\Ant-Simulator\resources\git.png \
-		..\Ant-Simulator\resources\MenuDesign.jpg \
-		..\Ant-Simulator\resources\Audiowide-Regular.ttf \
-		..\Ant-Simulator\resources\gitClicked.png \
-		..\Ant-Simulator\resources\stack.png \
-		..\Ant-Simulator\resources\MenuBg.png \
-		..\Ant-Simulator\resources\SimulateClickedBtn.png \
-		..\Ant-Simulator\resources\QuitClickedBtn.png \
-		..\Ant-Simulator\resources\linkedinClicked.png \
-		..\Ant-Simulator\resources\ConfigsDesign.jpg \
-		..\Ant-Simulator\resources\AboutBg.png \
-		..\Ant-Simulator\resources\ConfigsBg.png
+		..\Ant-Simulator\images\AboutDesign.jpg \
+		..\Ant-Simulator\images\Arrow.png \
+		..\Ant-Simulator\images\AboutBtn.png \
+		..\Ant-Simulator\images\QuitBtn.png \
+		..\Ant-Simulator\images\SimulateBtn.png \
+		..\Ant-Simulator\images\AboutClickedBtn.png \
+		..\Ant-Simulator\images\ConfigsBtn.png \
+		..\Ant-Simulator\images\linkedin.png \
+		..\Ant-Simulator\images\stackClicked.png \
+		..\Ant-Simulator\images\ConfigsClickedBtn.png \
+		..\Ant-Simulator\images\git.png \
+		..\Ant-Simulator\images\MenuDesign.jpg \
+		..\Ant-Simulator\images\gitClicked.png \
+		..\Ant-Simulator\images\stack.png \
+		..\Ant-Simulator\images\ant_full.png \
+		..\Ant-Simulator\images\MenuBg.png \
+		..\Ant-Simulator\images\SimulateClickedBtn.png \
+		..\Ant-Simulator\images\QuitClickedBtn.png \
+		..\Ant-Simulator\images\linkedinClicked.png \
+		..\Ant-Simulator\images\ConfigsDesign.jpg \
+		..\Ant-Simulator\images\AboutBg.png \
+		..\Ant-Simulator\images\ConfigsBg.png \
+		..\Ant-Simulator\fonts\Audiowide-Regular.ttf
 	D:\Qt\Qt5.12.10\5.12.10\msvc2017\bin\rcc.exe -name rsc ..\Ant-Simulator\rsc.qrc -o release\qrc_rsc.cpp
 
 compiler_moc_predefs_make_all: release\moc_predefs.h
@@ -664,38 +665,6 @@ release\mainwindow.obj: ..\Ant-Simulator\mainwindow.cpp ..\Ant-Simulator\mainwin
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtMultimedia\qaudio.h \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtNetwork\qnetworkconfiguration.h \
 		ui_mainwindow.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QApplication \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qapplication.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtCore\qcoreapplication.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtCore\qeventloop.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qdesktopwidget.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtGui\qguiapplication.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtGui\qinputmethod.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QCheckBox \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qcheckbox.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qabstractbutton.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QHBoxLayout \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qboxlayout.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qlayout.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qlayoutitem.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qgridlayout.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QLabel \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qlabel.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QMenuBar \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qmenubar.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qmenu.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qaction.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qactiongroup.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QPushButton \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qpushbutton.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QSlider \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qslider.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qabstractslider.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QStackedWidget \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qstackedwidget.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QStatusBar \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\qstatusbar.h \
-		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtWidgets\QVBoxLayout \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtGui\QDesktopServices \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtGui\qdesktopservices.h \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\include\QtCore\qstandardpaths.h

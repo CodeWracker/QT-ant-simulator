@@ -48,7 +48,7 @@
      <number>-8</number>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Menu">
      <widget class="QLabel" name="BackgMenu">
@@ -79,7 +79,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -100,12 +100,12 @@
          <property name="styleSheet">
           <string notr="true">QPushButton#SimulateButton {
 background-color: transparent;
-background-image: url(:/resources/SimulateBtn.png);
+background-image: url(:/images/SimulateBtn.png);
 border-image: none;
 }
 
 QPushButton#SimulateButton:pressed {
-    background-image: url(:/resources/SimulateClickedBtn.png);
+    background-image: url(:/images/SimulateClickedBtn.png);
 }</string>
          </property>
          <property name="text">
@@ -124,12 +124,12 @@ QPushButton#SimulateButton:pressed {
          <property name="styleSheet">
           <string notr="true">QPushButton#AboutButton {
 background-color: transparent;
-background-image: url(:/resources/AboutBtn.png);
+background-image: url(:/images/AboutBtn.png);
 border-image: none;
 }
 
 QPushButton#AboutButton:pressed {
-    background-image: url(:/resources/AboutClickedBtn.png);
+    background-image: url(:/images/AboutClickedBtn.png);
 }</string>
          </property>
          <property name="text">
@@ -148,12 +148,12 @@ QPushButton#AboutButton:pressed {
          <property name="styleSheet">
           <string notr="true">QPushButton#ConfigsButton {
 background-color: transparent;
-background-image: url(:/resources/ConfigsBtn.png);
+background-image: url(:/images/ConfigsBtn.png);
 border-image: none;
 }
 
 QPushButton#ConfigsButton:pressed {
-    background-image: url(:/resources/ConfigsClickedBtn.png);
+    background-image: url(:/images/ConfigsClickedBtn.png);
 }</string>
          </property>
          <property name="text">
@@ -172,12 +172,12 @@ QPushButton#ConfigsButton:pressed {
          <property name="styleSheet">
           <string notr="true">QPushButton#QuitButton {
 background-color: transparent;
-background-image: url(:/resources/QuitBtn.png);
+background-image: url(:/images/QuitBtn.png);
 border-image: none;
 }
 
 QPushButton#QuitButton:pressed {
-    background-image: url(:/resources/QuitClickedBtn.png);
+    background-image: url(:/images/QuitClickedBtn.png);
 }</string>
          </property>
          <property name="text">
@@ -201,7 +201,7 @@ QPushButton#QuitButton:pressed {
       <property name="styleSheet">
        <string notr="true">QPushButton#MenuButton {
 background-color: transparent;
-background-image: url(:/resources/Arrow.png);
+background-image: url(:/images/Arrow.png);
 border-image: none;
 }
 </string>
@@ -259,18 +259,18 @@ border-image: none;
       <property name="styleSheet">
        <string notr="true">QPushButton#gitCodeBtn {
 background-color: transparent;
-background-image: url(:/resources/git.png);
+background-image: url(:/images/git.png);
 border-image: none;
 }
 QPushButton#gitCodeBtn:pressed {
-    background-image: url(:/resources/gitClicked.png);
+    background-image: url(:/images/gitClicked.png);
 }</string>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -297,11 +297,11 @@ QPushButton#gitCodeBtn:pressed {
          <property name="styleSheet">
           <string notr="true">QPushButton#gitProfileBtn {
 background-color: transparent;
-background-image: url(:/resources/git.png);
+background-image: url(:/images/git.png);
 border-image: none;
 }
 QPushButton#gitProfileBtn:pressed {
-    background-image: url(:/resources/gitClicked.png);
+    background-image: url(:/images/gitClicked.png);
 }</string>
          </property>
          <property name="text">
@@ -326,11 +326,11 @@ QPushButton#gitProfileBtn:pressed {
          <property name="styleSheet">
           <string notr="true">QPushButton#lkdinBtn {
 background-color: transparent;
-background-image: url(:/resources/linkedin.png);
+background-image: url(:/images/linkedin.png);
 border-image: none;
 }
 QPushButton#lkdinBtn:pressed {
-    background-image: url(:/resources/linkedinClicked.png);
+    background-image: url(:/images/linkedinClicked.png);
 }</string>
          </property>
          <property name="text">
@@ -355,11 +355,11 @@ QPushButton#lkdinBtn:pressed {
          <property name="styleSheet">
           <string notr="true">QPushButton#soBtn {
 background-color: transparent;
-background-image: url(:/resources/stack.png);
+background-image: url(:/images/stack.png);
 border-image: none;
 }
 QPushButton#soBtn:pressed {
-    background-image: url(:/resources/stackClicked.png);
+    background-image: url(:/images/stackClicked.png);
 }</string>
          </property>
          <property name="text">
@@ -383,7 +383,7 @@ QPushButton#soBtn:pressed {
       <property name="styleSheet">
        <string notr="true">QPushButton#MenuButton_2 {
 background-color: transparent;
-background-image: url(:/resources/Arrow.png);
+background-image: url(:/images/Arrow.png);
 border-image: none;
 }
 </string>
@@ -417,7 +417,7 @@ border-image: none;
        <string/>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>140</x>
@@ -481,7 +481,7 @@ border-image: none;
 }</string>
            </property>
            <property name="text">
-            <string>Ants/Colony Unity:</string>
+            <string>Ants/Colony Unit:</string>
            </property>
           </widget>
          </item>

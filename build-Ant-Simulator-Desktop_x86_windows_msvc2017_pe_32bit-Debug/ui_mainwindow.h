@@ -32,7 +32,7 @@ public:
     QStackedWidget *stackedWidget;
     QWidget *Menu;
     QLabel *BackgMenu;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *SimulateButton;
     QPushButton *AboutButton;
@@ -42,7 +42,7 @@ public:
     QPushButton *MenuButton;
     QLabel *backgAbout;
     QPushButton *gitCodeBtn;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout;
     QPushButton *gitProfileBtn;
     QPushButton *lkdinBtn;
@@ -50,7 +50,7 @@ public:
     QWidget *Configuration;
     QPushButton *MenuButton_2;
     QLabel *backgConfig;
-    QWidget *widget2;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *config_1;
@@ -85,68 +85,68 @@ public:
         BackgMenu->setMinimumSize(QSize(1, 1));
         BackgMenu->setMaximumSize(QSize(704, 704));
         BackgMenu->setAutoFillBackground(false);
-        widget = new QWidget(Menu);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(250, 230, 181, 361));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(Menu);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(250, 230, 181, 361));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        SimulateButton = new QPushButton(widget);
+        SimulateButton = new QPushButton(layoutWidget);
         SimulateButton->setObjectName(QString::fromUtf8("SimulateButton"));
         SimulateButton->setMinimumSize(QSize(179, 54));
         SimulateButton->setStyleSheet(QString::fromUtf8("QPushButton#SimulateButton {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/SimulateBtn.png);\n"
+"background-image: url(:/images/SimulateBtn.png);\n"
 "border-image: none;\n"
 "}\n"
 "\n"
 "QPushButton#SimulateButton:pressed {\n"
-"    background-image: url(:/resources/SimulateClickedBtn.png);\n"
+"    background-image: url(:/images/SimulateClickedBtn.png);\n"
 "}"));
 
         verticalLayout->addWidget(SimulateButton);
 
-        AboutButton = new QPushButton(widget);
+        AboutButton = new QPushButton(layoutWidget);
         AboutButton->setObjectName(QString::fromUtf8("AboutButton"));
         AboutButton->setMinimumSize(QSize(179, 54));
         AboutButton->setStyleSheet(QString::fromUtf8("QPushButton#AboutButton {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/AboutBtn.png);\n"
+"background-image: url(:/images/AboutBtn.png);\n"
 "border-image: none;\n"
 "}\n"
 "\n"
 "QPushButton#AboutButton:pressed {\n"
-"    background-image: url(:/resources/AboutClickedBtn.png);\n"
+"    background-image: url(:/images/AboutClickedBtn.png);\n"
 "}"));
 
         verticalLayout->addWidget(AboutButton);
 
-        ConfigsButton = new QPushButton(widget);
+        ConfigsButton = new QPushButton(layoutWidget);
         ConfigsButton->setObjectName(QString::fromUtf8("ConfigsButton"));
         ConfigsButton->setMinimumSize(QSize(179, 54));
         ConfigsButton->setStyleSheet(QString::fromUtf8("QPushButton#ConfigsButton {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/ConfigsBtn.png);\n"
+"background-image: url(:/images/ConfigsBtn.png);\n"
 "border-image: none;\n"
 "}\n"
 "\n"
 "QPushButton#ConfigsButton:pressed {\n"
-"    background-image: url(:/resources/ConfigsClickedBtn.png);\n"
+"    background-image: url(:/images/ConfigsClickedBtn.png);\n"
 "}"));
 
         verticalLayout->addWidget(ConfigsButton);
 
-        QuitButton = new QPushButton(widget);
+        QuitButton = new QPushButton(layoutWidget);
         QuitButton->setObjectName(QString::fromUtf8("QuitButton"));
         QuitButton->setMinimumSize(QSize(0, 54));
         QuitButton->setStyleSheet(QString::fromUtf8("QPushButton#QuitButton {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/QuitBtn.png);\n"
+"background-image: url(:/images/QuitBtn.png);\n"
 "border-image: none;\n"
 "}\n"
 "\n"
 "QPushButton#QuitButton:pressed {\n"
-"    background-image: url(:/resources/QuitClickedBtn.png);\n"
+"    background-image: url(:/images/QuitClickedBtn.png);\n"
 "}"));
 
         verticalLayout->addWidget(QuitButton);
@@ -159,7 +159,7 @@ public:
         MenuButton->setGeometry(QRect(50, 50, 31, 31));
         MenuButton->setStyleSheet(QString::fromUtf8("QPushButton#MenuButton {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/Arrow.png);\n"
+"background-image: url(:/images/Arrow.png);\n"
 "border-image: none;\n"
 "}\n"
 ""));
@@ -175,59 +175,59 @@ public:
         gitCodeBtn->setMaximumSize(QSize(30, 30));
         gitCodeBtn->setStyleSheet(QString::fromUtf8("QPushButton#gitCodeBtn {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/git.png);\n"
+"background-image: url(:/images/git.png);\n"
 "border-image: none;\n"
 "}\n"
 "QPushButton#gitCodeBtn:pressed {\n"
-"    background-image: url(:/resources/gitClicked.png);\n"
+"    background-image: url(:/images/gitClicked.png);\n"
 "}"));
-        widget1 = new QWidget(About);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(80, 340, 269, 38));
-        horizontalLayout = new QHBoxLayout(widget1);
+        layoutWidget1 = new QWidget(About);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(80, 340, 269, 38));
+        horizontalLayout = new QHBoxLayout(layoutWidget1);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        gitProfileBtn = new QPushButton(widget1);
+        gitProfileBtn = new QPushButton(layoutWidget1);
         gitProfileBtn->setObjectName(QString::fromUtf8("gitProfileBtn"));
         gitProfileBtn->setMinimumSize(QSize(30, 30));
         gitProfileBtn->setMaximumSize(QSize(30, 30));
         gitProfileBtn->setStyleSheet(QString::fromUtf8("QPushButton#gitProfileBtn {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/git.png);\n"
+"background-image: url(:/images/git.png);\n"
 "border-image: none;\n"
 "}\n"
 "QPushButton#gitProfileBtn:pressed {\n"
-"    background-image: url(:/resources/gitClicked.png);\n"
+"    background-image: url(:/images/gitClicked.png);\n"
 "}"));
 
         horizontalLayout->addWidget(gitProfileBtn);
 
-        lkdinBtn = new QPushButton(widget1);
+        lkdinBtn = new QPushButton(layoutWidget1);
         lkdinBtn->setObjectName(QString::fromUtf8("lkdinBtn"));
         lkdinBtn->setMinimumSize(QSize(32, 32));
         lkdinBtn->setMaximumSize(QSize(32, 32));
         lkdinBtn->setStyleSheet(QString::fromUtf8("QPushButton#lkdinBtn {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/linkedin.png);\n"
+"background-image: url(:/images/linkedin.png);\n"
 "border-image: none;\n"
 "}\n"
 "QPushButton#lkdinBtn:pressed {\n"
-"    background-image: url(:/resources/linkedinClicked.png);\n"
+"    background-image: url(:/images/linkedinClicked.png);\n"
 "}"));
 
         horizontalLayout->addWidget(lkdinBtn);
 
-        soBtn = new QPushButton(widget1);
+        soBtn = new QPushButton(layoutWidget1);
         soBtn->setObjectName(QString::fromUtf8("soBtn"));
         soBtn->setMinimumSize(QSize(31, 36));
         soBtn->setMaximumSize(QSize(31, 36));
         soBtn->setStyleSheet(QString::fromUtf8("QPushButton#soBtn {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/stack.png);\n"
+"background-image: url(:/images/stack.png);\n"
 "border-image: none;\n"
 "}\n"
 "QPushButton#soBtn:pressed {\n"
-"    background-image: url(:/resources/stackClicked.png);\n"
+"    background-image: url(:/images/stackClicked.png);\n"
 "}"));
 
         horizontalLayout->addWidget(soBtn);
@@ -240,7 +240,7 @@ public:
         MenuButton_2->setGeometry(QRect(50, 50, 31, 31));
         MenuButton_2->setStyleSheet(QString::fromUtf8("QPushButton#MenuButton_2 {\n"
 "background-color: transparent;\n"
-"background-image: url(:/resources/Arrow.png);\n"
+"background-image: url(:/images/Arrow.png);\n"
 "border-image: none;\n"
 "}\n"
 ""));
@@ -249,15 +249,15 @@ public:
         backgConfig->setGeometry(QRect(0, 0, 14, 1));
         backgConfig->setMinimumSize(QSize(1, 1));
         backgConfig->setMaximumSize(QSize(704, 704));
-        widget2 = new QWidget(Configuration);
-        widget2->setObjectName(QString::fromUtf8("widget2"));
-        widget2->setGeometry(QRect(140, 220, 471, 131));
-        verticalLayout_2 = new QVBoxLayout(widget2);
+        layoutWidget2 = new QWidget(Configuration);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(140, 220, 471, 131));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget2);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        config_1 = new QLabel(widget2);
+        config_1 = new QLabel(layoutWidget2);
         config_1->setObjectName(QString::fromUtf8("config_1"));
         QFont font;
         font.setFamily(QString::fromUtf8("Audiowide"));
@@ -269,7 +269,7 @@ public:
 
         horizontalLayout_2->addWidget(config_1);
 
-        showPathsBox = new QCheckBox(widget2);
+        showPathsBox = new QCheckBox(layoutWidget2);
         showPathsBox->setObjectName(QString::fromUtf8("showPathsBox"));
         showPathsBox->setLayoutDirection(Qt::LeftToRight);
 
@@ -280,7 +280,7 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        config_2 = new QLabel(widget2);
+        config_2 = new QLabel(layoutWidget2);
         config_2->setObjectName(QString::fromUtf8("config_2"));
         config_2->setMinimumSize(QSize(230, 0));
         config_2->setFont(font);
@@ -290,7 +290,7 @@ public:
 
         horizontalLayout_3->addWidget(config_2);
 
-        antsNumber = new QLabel(widget2);
+        antsNumber = new QLabel(layoutWidget2);
         antsNumber->setObjectName(QString::fromUtf8("antsNumber"));
         antsNumber->setMinimumSize(QSize(20, 0));
         antsNumber->setMaximumSize(QSize(20, 16777215));
@@ -301,7 +301,7 @@ public:
 
         horizontalLayout_3->addWidget(antsNumber);
 
-        antsSlider = new QSlider(widget2);
+        antsSlider = new QSlider(layoutWidget2);
         antsSlider->setObjectName(QString::fromUtf8("antsSlider"));
         antsSlider->setOrientation(Qt::Horizontal);
 
@@ -322,7 +322,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -346,7 +346,7 @@ public:
         backgConfig->setText(QString());
         config_1->setText(QApplication::translate("MainWindow", "Show paths:", nullptr));
         showPathsBox->setText(QString());
-        config_2->setText(QApplication::translate("MainWindow", "Ants/Colony Unity:", nullptr));
+        config_2->setText(QApplication::translate("MainWindow", "Ants/Colony Unit:", nullptr));
         antsNumber->setText(QApplication::translate("MainWindow", "10", nullptr));
     } // retranslateUi
 

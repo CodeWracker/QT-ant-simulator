@@ -42,6 +42,8 @@ private slots:
 
     void on_showPathsBox_stateChanged(int arg1);
 
+    void on_QuitButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

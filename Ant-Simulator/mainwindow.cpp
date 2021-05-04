@@ -13,17 +13,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     /*Define os backgrounds*/
     ui->setupUi(this);
-    ui->BackgMenu->setPixmap(QPixmap(":/resources/MenuBg.png"));
+    ui->BackgMenu->setPixmap(QPixmap(":/images/MenuBg.png"));
     ui->BackgMenu->setFixedWidth(704);
     ui->BackgMenu->setFixedHeight(704);
     ui->BackgMenu->lower();
 
-    ui->backgAbout->setPixmap(QPixmap(":/resources/AboutBg.png"));
+    ui->backgAbout->setPixmap(QPixmap(":/images/AboutBg.png"));
     ui->backgAbout->setFixedWidth(704);
     ui->backgAbout->setFixedHeight(704);
     ui->backgAbout->lower();
 
-    ui->backgConfig->setPixmap(QPixmap(":/resources/ConfigsBg.png"));
+    ui->backgConfig->setPixmap(QPixmap(":/images/ConfigsBg.png"));
     ui->backgConfig->setFixedWidth(704);
     ui->backgConfig->setFixedHeight(704);
     ui->backgConfig->lower();
@@ -110,3 +110,8 @@ void MainWindow::on_showPathsBox_stateChanged(int arg1)
 }
 
 
+
+void MainWindow::on_QuitButton_clicked()
+{
+    MainWindow::close();
+}
