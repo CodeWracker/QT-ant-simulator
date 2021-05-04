@@ -3,11 +3,14 @@
 #include <iostream>
 #include <QDesktopServices>
 #include <QUrl>
+#include "simulationenv.h"
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    simEnv = new SimulationEnv();
+
     /*Define os backgrounds*/
     ui->setupUi(this);
     ui->BackgMenu->setPixmap(QPixmap(":/resources/MenuBg.png"));
@@ -58,7 +61,7 @@ void MainWindow::on_ConfigsButton_clicked()
 
 void MainWindow::on_SimulateButton_clicked()
 {
-
+    simEnv->startSimulation(showPaths,antsNumber);
 }
 
 void MainWindow::on_MenuButton_clicked()

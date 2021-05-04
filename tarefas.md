@@ -13,7 +13,7 @@
 - [ ] Fazer um teste com N formigas surgindo do formigueiro e buscando comida</br></br>
 - [ ] Fazer a tela de Menu
   - [x] Deixar Bonita
-  - [ ] Linkar com a simulação
+  - [x] Linkar com a simulação
 - [x] Fazer a tela de Configurações
   - [x] Deixar Bonita
   - [x] Salvar os valores</br></br>
