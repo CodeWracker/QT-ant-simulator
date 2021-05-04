@@ -11,7 +11,7 @@
 - [ ] Fazer um teste com uma formiga andando e criando rastros
 - [ ] Fazer um teste com dus formigas andando, criando rastros e seguindo eles
 - [ ] Fazer um teste com N formigas surgindo do formigueiro e buscando comida</br></br>
-- [ ] Fazer a tela de Menu
+- [x] Fazer a tela de Menu
   - [x] Deixar Bonita
   - [x] Linkar com a simulação
 - [x] Fazer a tela de Configurações
