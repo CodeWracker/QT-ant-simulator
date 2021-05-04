@@ -420,48 +420,106 @@ border-image: none;
      <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>230</y>
-        <width>219</width>
-        <height>101</height>
+        <x>140</x>
+        <y>220</y>
+        <width>471</width>
+        <height>131</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLabel" name="config_1">
-         <property name="font">
-          <font>
-           <family>Audiowide</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel#config_1{
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="config_1">
+           <property name="font">
+            <font>
+             <family>Audiowide</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel#config_1{
  color: white;
 }</string>
-         </property>
-         <property name="text">
-          <string>Show paths:</string>
-         </property>
-        </widget>
+           </property>
+           <property name="text">
+            <string>Show paths:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showPathsBox">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QLabel" name="config_2">
-         <property name="font">
-          <font>
-           <family>Audiowide</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel#config_2{
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="config_2">
+           <property name="minimumSize">
+            <size>
+             <width>230</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Audiowide</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel#config_2{
  color: white;
 }</string>
-         </property>
-         <property name="text">
-          <string>Ants/Colony Unity:</string>
-         </property>
-        </widget>
+           </property>
+           <property name="text">
+            <string>Ants/Colony Unity:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="antsNumber">
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Audiowide</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;</string>
+           </property>
+           <property name="text">
+            <string>10</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="antsSlider">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

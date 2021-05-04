@@ -10,7 +10,9 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+private:
+    bool showPaths;
+    int antsNumber;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -33,6 +35,11 @@ private slots:
     void on_lkdinBtn_clicked();
 
     void on_gitProfileBtn_clicked();
+
+
+    void on_antsSlider_sliderMoved(int position);
+
+    void on_showPathsBox_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;

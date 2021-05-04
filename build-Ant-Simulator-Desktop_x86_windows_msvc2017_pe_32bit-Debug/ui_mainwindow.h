@@ -11,11 +11,13 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
@@ -50,8 +52,13 @@ public:
     QLabel *backgConfig;
     QWidget *widget2;
     QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *config_1;
+    QCheckBox *showPathsBox;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *config_2;
+    QLabel *antsNumber;
+    QSlider *antsSlider;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -244,10 +251,12 @@ public:
         backgConfig->setMaximumSize(QSize(704, 704));
         widget2 = new QWidget(Configuration);
         widget2->setObjectName(QString::fromUtf8("widget2"));
-        widget2->setGeometry(QRect(180, 230, 219, 101));
+        widget2->setGeometry(QRect(140, 220, 471, 131));
         verticalLayout_2 = new QVBoxLayout(widget2);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         config_1 = new QLabel(widget2);
         config_1->setObjectName(QString::fromUtf8("config_1"));
         QFont font;
@@ -258,16 +267,48 @@ public:
 " color: white;\n"
 "}"));
 
-        verticalLayout_2->addWidget(config_1);
+        horizontalLayout_2->addWidget(config_1);
 
+        showPathsBox = new QCheckBox(widget2);
+        showPathsBox->setObjectName(QString::fromUtf8("showPathsBox"));
+        showPathsBox->setLayoutDirection(Qt::LeftToRight);
+
+        horizontalLayout_2->addWidget(showPathsBox);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         config_2 = new QLabel(widget2);
         config_2->setObjectName(QString::fromUtf8("config_2"));
+        config_2->setMinimumSize(QSize(230, 0));
         config_2->setFont(font);
         config_2->setStyleSheet(QString::fromUtf8("QLabel#config_2{\n"
 " color: white;\n"
 "}"));
 
-        verticalLayout_2->addWidget(config_2);
+        horizontalLayout_3->addWidget(config_2);
+
+        antsNumber = new QLabel(widget2);
+        antsNumber->setObjectName(QString::fromUtf8("antsNumber"));
+        antsNumber->setMinimumSize(QSize(20, 0));
+        antsNumber->setMaximumSize(QSize(20, 16777215));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Audiowide"));
+        antsNumber->setFont(font1);
+        antsNumber->setStyleSheet(QString::fromUtf8("color: white;"));
+
+        horizontalLayout_3->addWidget(antsNumber);
+
+        antsSlider = new QSlider(widget2);
+        antsSlider->setObjectName(QString::fromUtf8("antsSlider"));
+        antsSlider->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_3->addWidget(antsSlider);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_3);
 
         stackedWidget->addWidget(Configuration);
         MainWindow->setCentralWidget(centralwidget);
@@ -304,7 +345,9 @@ public:
         MenuButton_2->setText(QString());
         backgConfig->setText(QString());
         config_1->setText(QApplication::translate("MainWindow", "Show paths:", nullptr));
+        showPathsBox->setText(QString());
         config_2->setText(QApplication::translate("MainWindow", "Ants/Colony Unity:", nullptr));
+        antsNumber->setText(QApplication::translate("MainWindow", "10", nullptr));
     } // retranslateUi
 
 };

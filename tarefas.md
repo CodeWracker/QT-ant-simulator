@@ -14,12 +14,12 @@
 - [ ] Fazer a tela de Menu
   - [x] Deixar Bonita
   - [ ] Linkar com a simulação
-- [ ] Fazer a tela de Configurações
+- [x] Fazer a tela de Configurações
   - [x] Deixar Bonita
-  - [ ] Salvar os valores</br></br>
-- [ ] Fazer a tela de Sobre
+  - [x] Salvar os valores</br></br>
+- [x] Fazer a tela de Sobre
   - [x] Deixar Bonita
-  - [ ] Linkar com os sites</br></br>
+  - [x] Linkar com os sites</br></br>
 - [ ] Adicionar a função de borracha
 - [ ] Fazer o ajustes necessários
 
