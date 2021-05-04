@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/AboutBg.png</file>
+        <file>resources/AboutBtn.png</file>
+        <file>resources/AboutClickedBtn.png</file>
+        <file>resources/AboutDesign.jpg</file>
+        <file>resources/Audiowide-Regular.ttf</file>
+        <file>resources/ConfigsBtn.png</file>
+        <file>resources/ConfigsDesign.jpg</file>
+        <file>resources/MenuBg.png</file>
+        <file>resources/MenuDesign.jpg</file>
+        <file>resources/QuitBtn.png</file>
+        <file>resources/QuitClickedBtn.png</file>
+        <file>resources/SimulateBtn.png</file>
+        <file>resources/SimulateClickedBtn.png</file>
+        <file>resources/ConfigsBg.png</file>
+        <file>resources/ConfigsClickedBtn.png</file>
+        <file>resources/Arrow.png</file>
+        <file>resources/git.png</file>
+        <file>resources/linkedin.png</file>
+        <file>resources/stack.png</file>
+        <file>resources/gitClicked.png</file>
+        <file>resources/linkedinClicked.png</file>
+        <file>resources/stackClicked.png</file>
+    </qresource>
+</RCC>
