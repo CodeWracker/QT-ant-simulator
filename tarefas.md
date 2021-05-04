@@ -1,18 +1,21 @@
 # Tarefas
 
-- Definir a estrutura de classes
-- Fazer um design das partes que vão haver(Menus e afins)
-- Escolher as imagens para o que foi selecionado no item anterior e as formigas</br></br>
-- Fazer o SimulationEnv
-- Fazer um teste colocando os itens no jogo, formigueiro e comida
-- Fazer um teste com uma formiga andando e criando rastros
-- Fazer um teste com dus formigas andando, criando rastros e seguindo eles</br></br>
-- Fazer um teste com N formigas surgindo do formigueiro e buscando comida
-- Fazer a tela de Menu
-- Fazer a tela de Configurações</br></br>
-- Fazer a tela de Sobre</br></br>
-- Adicionar a função de borracha
-- Fazer o ajustes necessários
+- [x] Definir a estrutura de classes
+- [ ] Fazer um design das partes que vão haver(Menus e afins)
+  - [x] Menu
+  - [x] About
+  - [ ] Configs
+- [ ] Escolher as imagens para o que foi selecionado no item anterior e as formigas</br></br>
+- [ ] Fazer o SimulationEnv
+- [ ] Fazer um teste colocando os itens no jogo, formigueiro e comida
+- [ ] Fazer um teste com uma formiga andando e criando rastros
+- [ ] Fazer um teste com dus formigas andando, criando rastros e seguindo eles</br></br>
+- [ ] Fazer um teste com N formigas surgindo do formigueiro e buscando comida
+- [ ] Fazer a tela de Menu
+- [ ] Fazer a tela de Configurações</br></br>
+- [ ] Fazer a tela de Sobre</br></br>
+- [ ] Adicionar a função de borracha
+- [ ] Fazer o ajustes necessários
 
 ## Classes
 
