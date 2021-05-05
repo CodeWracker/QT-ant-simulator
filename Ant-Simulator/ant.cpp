@@ -1,4 +1,6 @@
 #include "ant.h"
+#include "food.h"
+#include "colony.h"
 #include <math.h>
 #include <iostream>
 using namespace std;
@@ -9,6 +11,7 @@ Ant::Ant(QGraphicsPixmapItem *parent): QGraphicsPixmapItem(parent)
     float ran = rand()%360;
     setRotation(ran);
     goal = 0;
+    food = false;
 }
 void Ant::move(){
     float ran = rand()%90;
@@ -19,4 +22,28 @@ void Ant::move(){
     if(x()+dX<10 || x()+dX>1230) dX = 0;
     if(y()+ dY < 10 || y()+dY>710) dY = 0;
     moveBy(dX,dY);
+    QList<QGraphicsItem *> colliding_item = collidingItems();
+    for(QGraphicsItem* i : colliding_item){
+
+        if(goal == 0 && !food){
+            if(typeid(*i) == typeid(Food)){
+                cout << "Eat"<<endl;
+                goal = 1;
+                food = true;
+                Food* f = (Food*)i;
+                f->eat();
+            }
+        }else{
+            if(food){
+                if(typeid(*i) == typeid(Colony)){
+                    Colony *c = (Colony*)i;
+                    if(c->stock < c->fillMax){
+                        food = false;
+                        goal = 0;
+                        c->stock++;
+                    }
+                }
+            }
+        }
+    }
 }

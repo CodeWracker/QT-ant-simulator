@@ -12,6 +12,7 @@ CONFIG += c++11
 SOURCES += \
     ant.cpp \
     colony.cpp \
+    food.cpp \
     main.cpp \
     mainwindow.cpp \
     simulationenv.cpp
@@ -19,6 +20,7 @@ SOURCES += \
 HEADERS += \
     ant.h \
     colony.h \
+    food.h \
     mainwindow.h \
     simulationenv.h
 

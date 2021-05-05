@@ -1,7 +1,7 @@
 #include "simulationenv.h"
 #include "ant.h"
 #include "colony.h"
-
+#include "food.h"
 #include <QKeyEvent>
 #include <iostream>
 using namespace std;
@@ -44,11 +44,26 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event){
         scene->addItem(c);
         colonyList.push_back(c);
     }
+    if(event->button() == Qt::RightButton){
+        Food *f = new Food(nullptr,event->x(),event->y());
+        scene->addItem(f);
+        foodList.push_back(f);
+    }
 }
 void SimulationEnv::step(){
     for(Ant* a : antList){
         a->move();
     }
+    vector<Food*> aux = foodList;
+    for(Food* f : aux){
+        if(!f->isAvaible())
+            delete f;
+    }
+    aux.clear();
+    for(Food* f : aux){
+        if(f) aux.push_back(f);
+    }
+    foodList = aux;
 }
 void SimulationEnv::startSimulation(bool showPath,int antNumber){
     showPaths = showPath;

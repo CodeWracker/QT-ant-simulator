@@ -1,8 +1,5 @@
 #include "colony.h"
 #include <iostream>
-#include <QColor>
-#include <QPainter>
-#include <QPen>
 using namespace std;
 Colony::Colony(QGraphicsPixmapItem * parent)
 {

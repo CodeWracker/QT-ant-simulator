@@ -11,6 +11,7 @@
 #include <QMouseEvent>
 #include "ant.h"
 #include "colony.h"
+#include "food.h"
 using namespace std;
 class SimulationEnv: public QGraphicsView
 {
@@ -20,6 +21,7 @@ private:
     QTimer *timer;
     vector<Colony*> colonyList;
     vector<Ant*> antList;
+    vector<Food*> foodList;
 public:
     SimulationEnv(QWidget *parent = 0);
     QGraphicsScene *scene;
@@ -35,6 +37,10 @@ private:
         for(Colony* c : colonyList)
             delete c;
         colonyList.clear();
+
+        for(Food* f : foodList)
+            delete f;
+        foodList.clear();
         timer->stop();
     }
 };
