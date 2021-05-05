@@ -9,6 +9,7 @@
 class Ant: public QObject, public QGraphicsPixmapItem
 {
 public:
+    int goal; //0: Food - 1: Home
     Ant(QGraphicsPixmapItem *parent = 0);
     void move();
 };

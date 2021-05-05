@@ -11,12 +11,14 @@ CONFIG += c++11
 
 SOURCES += \
     ant.cpp \
+    colony.cpp \
     main.cpp \
     mainwindow.cpp \
     simulationenv.cpp
 
 HEADERS += \
     ant.h \
+    colony.h \
     mainwindow.h \
     simulationenv.h
 

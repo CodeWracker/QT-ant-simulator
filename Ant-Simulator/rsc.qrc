@@ -27,5 +27,7 @@
         <file>images/antLeft.png</file>
         <file>images/antRight.png</file>
         <file>images/antUp.png</file>
+        <file>images/colony.png</file>
+        <file>images/food.png</file>
     </qresource>
 </RCC>

@@ -6,6 +6,9 @@ using namespace std;
 Ant::Ant(QGraphicsPixmapItem *parent): QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/images/antLeft.png"));
+    float ran = rand()%360;
+    setRotation(ran);
+    goal = 0;
 }
 void Ant::move(){
     float ran = rand()%90;
