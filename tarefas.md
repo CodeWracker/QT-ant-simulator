@@ -6,7 +6,7 @@
   - [x] About
   - [x] Configs
 - [x] Escolher as imagens para o que foi selecionado no item anterior e as formigas</br></br>
-- [ ] Fazer o SimulationEnv
+- [x] Fazer o SimulationEnv
 - [ ] Fazer um teste colocando os itens no jogo, formigueiro e comida
 - [ ] Fazer um teste com uma formiga andando e criando rastros
 - [ ] Fazer um teste com dus formigas andando, criando rastros e seguindo eles

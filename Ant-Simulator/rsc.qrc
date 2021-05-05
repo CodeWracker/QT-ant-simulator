@@ -23,5 +23,9 @@
         <file>images/SimulateClickedBtn.png</file>
         <file>images/stack.png</file>
         <file>images/stackClicked.png</file>
+        <file>images/antDown.png</file>
+        <file>images/antLeft.png</file>
+        <file>images/antRight.png</file>
+        <file>images/antUp.png</file>
     </qresource>
 </RCC>
