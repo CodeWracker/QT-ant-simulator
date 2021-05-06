@@ -19,8 +19,9 @@ SimulationEnv::SimulationEnv(QWidget *parent )
    // fixar o tamanho
    setFixedSize(1240, 720);
 
-
+   run = false;
    timer = new QTimer();
+   stepTime = 100;
    connect(timer, &QTimer::timeout, this, std::bind(&SimulationEnv::step, this));
 }
 void SimulationEnv::keyPressEvent(QKeyEvent *event){
@@ -33,8 +34,25 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
                     scene->addItem(a);
                     antList.push_back(a);
                     a->setPos(c->x()+25,c->y()+25);
+                    a->setLast(c->x()+25,c->y()+25);
                     c->createdAnts = true;
                 }
+            }
+        }
+    }
+    if(event->key() == Qt::Key_Space){
+
+        if(run){
+            timer->stop();
+            run = false;
+            for(Path* p: pathList){
+                scene->addItem(p);
+            }
+        }else{
+            timer->start(stepTime);
+            run = true;
+            for(Path* p: pathList){
+                scene->removeItem(p);
             }
         }
     }
@@ -53,39 +71,45 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event){
 }
 void SimulationEnv::step(){
     for(Ant* a : antList){
-
-        QList<QGraphicsItem *> colliding_item = a->collidingItems();
-        bool achou = true; //ta true pq se ficar mostrando os caminhos vai ficar lentão
-        for(QGraphicsItem* i : colliding_item){
-            //if(typeid (*i) == typeid(Path)) achou = true;
-        }
-        if(!achou){
-            Path *p = new Path(nullptr,1-a->goal,a->x(),a->y());
-            scene->addItem(p);
+        if(a){
+            Path *p = new Path(nullptr,1-a->goal,a->x(),a->y(), a->lastAngle, a->lX,a->lY);
             pathList.push_back(p);
+            bool achou = false;
+            for(Path* i : pathList){
+
+
+                if(i->goal == a->goal && i->isVisible() && i->x()-a->x()<30 && i->y()-a->y()<30){
+                    cout << "Penis"<<endl;
+                    a->setLast(a->x(),a->y());
+                    a->lastAngle = a->rotation();
+                    a->setPos(i->lX,i->lY);
+                    a->setRotation(i->lastAngle);
+                    achou = true;
+                    break;
+                }
+
+
+            }
+            if(!achou)
+            a->move();
         }
-        a->move();
     }
-    vector<int> aux;
-    for(size_t i = 0; i < foodList.size();i++){
-        if(!foodList.at(i)->isAvaible()) aux.push_back(i);
+    vector<Path*> aux;
+    for(Path* p : pathList){
+        if(p){
+
+            p->remainingSteps-=1;
+            if(p->isVisible()) aux.push_back(p);
+        }
     }
-    for(int i : aux){
-        cout << i << " "<<foodList.size()<<endl;
-        if(foodList.at(i))
-        delete foodList.at(i);
-    }
-
-
-
-
-
-
+    pathList = aux;
 
 }
 void SimulationEnv::startSimulation(bool showPath,int antNumber){
+    scene->clear();
     showPaths = showPath;
     antsNumber = antNumber;
-    timer->start(200);
+    run = true;
+    timer->start(stepTime);
     show();
 }

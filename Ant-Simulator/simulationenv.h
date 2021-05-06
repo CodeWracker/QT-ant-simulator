@@ -24,6 +24,8 @@ private:
     vector<Ant*> antList;
     vector<Food*> foodList;
     vector<Path*> pathList;
+    bool run;
+    int stepTime;
 public:
     SimulationEnv(QWidget *parent = 0);
     QGraphicsScene *scene;
