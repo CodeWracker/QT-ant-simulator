@@ -13,6 +13,7 @@ public:
     bool food;
     Ant(QGraphicsPixmapItem *parent = 0);
     void move();
+    ~Ant(){};
 };
 
 #endif // ANT_H

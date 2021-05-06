@@ -11,6 +11,7 @@ public:
     int fillMax;
     Colony(QGraphicsPixmapItem * parent=0);
     Colony(QGraphicsPixmapItem * parent=0,int nX=100, int nY=100);
+    ~Colony(){};
 };
 
 #endif // COLONY_H

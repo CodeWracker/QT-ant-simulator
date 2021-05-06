@@ -12,6 +12,7 @@
 #include "ant.h"
 #include "colony.h"
 #include "food.h"
+#include "path.h"
 using namespace std;
 class SimulationEnv: public QGraphicsView
 {
@@ -22,6 +23,7 @@ private:
     vector<Colony*> colonyList;
     vector<Ant*> antList;
     vector<Food*> foodList;
+    vector<Path*> pathList;
 public:
     SimulationEnv(QWidget *parent = 0);
     QGraphicsScene *scene;
@@ -34,12 +36,17 @@ private:
         for(Ant* a : antList)
             delete a;
         antList.clear();
+
         for(Colony* c : colonyList)
             delete c;
         colonyList.clear();
 
         for(Food* f : foodList)
             delete f;
+        foodList.clear();
+
+        for(Path* p : pathList)
+            delete p;
         foodList.clear();
         timer->stop();
     }

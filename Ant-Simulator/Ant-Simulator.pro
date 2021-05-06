@@ -15,6 +15,7 @@ SOURCES += \
     food.cpp \
     main.cpp \
     mainwindow.cpp \
+    path.cpp \
     simulationenv.cpp
 
 HEADERS += \
@@ -22,6 +23,7 @@ HEADERS += \
     colony.h \
     food.h \
     mainwindow.h \
+    path.h \
     simulationenv.h
 
 FORMS += \

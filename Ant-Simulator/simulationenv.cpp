@@ -2,6 +2,7 @@
 #include "ant.h"
 #include "colony.h"
 #include "food.h"
+#include "path.h"
 #include <QKeyEvent>
 #include <iostream>
 using namespace std;
@@ -52,22 +53,39 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event){
 }
 void SimulationEnv::step(){
     for(Ant* a : antList){
+
+        QList<QGraphicsItem *> colliding_item = a->collidingItems();
+        bool achou = true; //ta true pq se ficar mostrando os caminhos vai ficar lentão
+        for(QGraphicsItem* i : colliding_item){
+            //if(typeid (*i) == typeid(Path)) achou = true;
+        }
+        if(!achou){
+            Path *p = new Path(nullptr,1-a->goal,a->x(),a->y());
+            scene->addItem(p);
+            pathList.push_back(p);
+        }
         a->move();
     }
-    vector<Food*> aux = foodList;
-    for(Food* f : aux){
-        if(!f->isAvaible())
-            delete f;
+    vector<int> aux;
+    for(size_t i = 0; i < foodList.size();i++){
+        if(!foodList.at(i)->isAvaible()) aux.push_back(i);
     }
-    aux.clear();
-    for(Food* f : aux){
-        if(f) aux.push_back(f);
+    for(int i : aux){
+        cout << i << " "<<foodList.size()<<endl;
+        if(foodList.at(i))
+        delete foodList.at(i);
     }
-    foodList = aux;
+
+
+
+
+
+
+
 }
 void SimulationEnv::startSimulation(bool showPath,int antNumber){
     showPaths = showPath;
     antsNumber = antNumber;
-    timer->start(50);
+    timer->start(200);
     show();
 }

@@ -32,6 +32,10 @@ void Ant::move(){
                 food = true;
                 Food* f = (Food*)i;
                 f->eat();
+                rot-=(ran-45);
+                if(rot>180)rot-=180;
+                else rot+=180;
+                setRotation(rot);
             }
         }else{
             if(food){
@@ -41,6 +45,11 @@ void Ant::move(){
                         food = false;
                         goal = 0;
                         c->stock++;
+
+                        rot-=(ran-45);
+                        if(rot>180)rot-=180;
+                        else rot+=180;
+                        setRotation(rot);
                     }
                 }
             }

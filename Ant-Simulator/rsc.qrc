@@ -30,5 +30,7 @@
         <file>images/colony.png</file>
         <file>images/food-1.png</file>
         <file>images/food-2.png</file>
+        <file>images/colonyPath.png</file>
+        <file>images/foodPath.png</file>
     </qresource>
 </RCC>
