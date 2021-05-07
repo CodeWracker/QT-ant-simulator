@@ -54,8 +54,10 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
         if(run){
             timer->stop();
             run = false;
-            for(Path* p: pathList){
-                scene->addItem(p);
+            if(showPaths){
+                for(Path* p: pathList){
+                    scene->addItem(p);
+                }
             }
         }else{
             timer->start(stepTime);
@@ -112,7 +114,8 @@ void SimulationEnv::step(){
 
             }
             //cout <<endl<<a->rotation()<<endl;
-            if(!achou)
+            int ran = rand()%1000;
+            if(!achou || ran<10)
                 a->move();
             else{
 
