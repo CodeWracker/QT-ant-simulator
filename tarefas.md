@@ -20,8 +20,11 @@
 - [x] Fazer a tela de Sobre
   - [x] Deixar Bonita
   - [x] Linkar com os sites</br></br>
-- [ ] Adicionar a função de borracha
 - [ ] Corrigir o bug que crasha quando tenta simular pela 2a vez
+- [ ] Otimizar o programa
+  - [ ] Reduzir o loop dos paths projetando um circulo na formiga e avaliando só as colisões dele (nem sei se isso reduziria mesmo)
+  - [ ] Melhorar a renderização das imagens
+- [ ] Adicionar a função de borracha
 - [ ] Adicionar uma musiquinha em algum lugar
 
 ## Classes
