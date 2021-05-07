@@ -9,8 +9,8 @@
 - [x] Fazer o SimulationEnv
 - [x] Fazer um teste colocando os itens no jogo, formigueiro e comida
 - [x] Fazer um teste com uma formiga andando e criando rastros
-- [ ] Fazer um teste com dus formigas andando, criando rastros e seguindo eles
-- [ ] Fazer um teste com N formigas surgindo do formigueiro e buscando comida</br></br>
+- [x] Fazer um teste com duas formigas andando, criando rastros e seguindo eles
+- [xs] Fazer um teste com N formigas surgindo do formigueiro e buscando comida</br></br>
 - [x] Fazer a tela de Menu
   - [x] Deixar Bonita
   - [x] Linkar com a simulação

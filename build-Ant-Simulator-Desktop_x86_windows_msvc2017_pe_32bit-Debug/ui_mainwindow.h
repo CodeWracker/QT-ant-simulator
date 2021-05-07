@@ -303,6 +303,8 @@ public:
 
         antsSlider = new QSlider(layoutWidget2);
         antsSlider->setObjectName(QString::fromUtf8("antsSlider"));
+        antsSlider->setMinimum(1);
+        antsSlider->setMaximum(100);
         antsSlider->setOrientation(Qt::Horizontal);
 
         horizontalLayout_3->addWidget(antsSlider);
@@ -322,7 +324,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

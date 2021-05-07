@@ -12,14 +12,14 @@ class Ant: public QObject, public QGraphicsPixmapItem
 public:
     int goal; //0: Food - 1: Home
     bool food;
-    int comingFromIndex;
-    int lX;
-    int lY;
-    void setLast(int X, int Y){lX = X; lY = Y;};
+    int steps;
     float lastAngle;
     Ant(QGraphicsPixmapItem *parent = 0);
     void move();
+    void move(float angle);
     ~Ant(){};
+private:
+    void move(int dX, int dY);
 };
 
 #endif // ANT_H

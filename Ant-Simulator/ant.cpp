@@ -13,21 +13,22 @@ Ant::Ant(QGraphicsPixmapItem *parent): QGraphicsPixmapItem(parent)
     setRotation(ran);
     goal = 0;
     food = false;
-    if(ran<180) lastAngle = ran+180;
-    else lastAngle = ran-180;
+    steps = 0;
 }
-void Ant::move(){
-    float ran = rand()%90;
-    float rot = rotation() +(ran-45);
+void Ant::move(float angle){
+    float rot = angle + 180;
+    if(rot<0) rot = 360 + rot;
+    if(rot>360) rot = rot - 360;
     setRotation(rot);
     float dX = -20*cos(rot*PI/180);
     float dY = -10*sin(rot*PI/180);
     if(x()+dX<10 || x()+dX>1230) dX = 0;
     if(y()+ dY < 10 || y()+dY>710) dY = 0;
-    if(ran<180) lastAngle = ran+180;
-    else lastAngle = ran-180;
-    setLast(x(),y());
+    move(dX,dY);
+}
+void Ant::move(int dX, int dY){
     moveBy(dX,dY);
+    steps++;
     QList<QGraphicsItem *> colliding_item = collidingItems();
     for(QGraphicsItem* i : colliding_item){
 
@@ -38,27 +39,35 @@ void Ant::move(){
                 food = true;
                 Food* f = (Food*)i;
                 f->eat();
-                rot-=(ran-45);
-                if(rot>180)rot-=180;
-                else rot+=180;
-                setRotation(rot);
+                if(rotation()>180)setRotation(rotation()-180);
+                else setRotation(rotation()+180);
+                steps = 0;
             }
         }else{
             if(food){
                 if(typeid(*i) == typeid(Colony)){
                     Colony *c = (Colony*)i;
-                    if(c->stock < c->fillMax){
+
                         food = false;
                         goal = 0;
-                        c->stock++;
+                        if(rotation()>180)setRotation(rotation()-180);
+                        else setRotation(rotation()+180);
+                        steps = 0;
 
-                        rot-=(ran-45);
-                        if(rot>180)rot-=180;
-                        else rot+=180;
-                        setRotation(rot);
-                    }
                 }
             }
         }
     }
+}
+void Ant::move(){
+    float ran = rand()%90;
+    float rot = rotation() +(ran-45);
+    setRotation(rot);
+    float dX = -20*cos(rot*PI/180);
+    float dY = -10*sin(rot*PI/180);
+    if(x()+dX<10 || x()+dX>1230) dX = 0;
+    if(y()+ dY < 10 || y()+dY>710) dY = 0;
+    move(dX,dY);
+
+
 }

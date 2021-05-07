@@ -5,6 +5,7 @@
 #include "path.h"
 #include <QKeyEvent>
 #include <iostream>
+#include <math.h>
 using namespace std;
 SimulationEnv::SimulationEnv(QWidget *parent )
 {
@@ -21,11 +22,20 @@ SimulationEnv::SimulationEnv(QWidget *parent )
 
    run = false;
    timer = new QTimer();
-   stepTime = 100;
+   stepTime = 50;
    connect(timer, &QTimer::timeout, this, std::bind(&SimulationEnv::step, this));
 }
 void SimulationEnv::keyPressEvent(QKeyEvent *event){
-
+    if(event->key() == Qt::Key_Up){
+        timer->stop();
+        stepTime+=10;
+        timer->start(stepTime);
+    }
+    if(event->key() == Qt::Key_Down){
+        timer->stop();
+        stepTime-=10;
+        timer->start(stepTime);
+    }
     if(event->key() == Qt::Key_Enter){
         for(Colony *c : colonyList){
             if(!c->createdAnts){
@@ -34,7 +44,6 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
                     scene->addItem(a);
                     antList.push_back(a);
                     a->setPos(c->x()+25,c->y()+25);
-                    a->setLast(c->x()+25,c->y()+25);
                     c->createdAnts = true;
                 }
             }
@@ -71,29 +80,61 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event){
 }
 void SimulationEnv::step(){
     for(Ant* a : antList){
+        //cout << "Penis"<<endl;
         if(a){
-            Path *p = new Path(nullptr,1-a->goal,a->x(),a->y(), a->lastAngle, a->lX,a->lY);
+            Path *p = new Path(nullptr,1-a->goal,a->x(),a->y(), a->steps);
             pathList.push_back(p);
             bool achou = false;
+            float d = 2000;
             for(Path* i : pathList){
 
+                float dX = a->x() -50*cos(a->rotation()*3.14/180);
+                float dY = a->y()-50*sin(a->rotation()*3.14/180);
 
-                if(i->goal == a->goal && i->isVisible() && i->x()-a->x()<30 && i->y()-a->y()<30){
-                    cout << "Penis"<<endl;
-                    a->setLast(a->x(),a->y());
-                    a->lastAngle = a->rotation();
-                    a->setPos(i->lX,i->lY);
-                    a->setRotation(i->lastAngle);
-                    achou = true;
-                    break;
+                float dx =  sqrt(pow(i->x()-a->x(),2));
+                float dx_f =  sqrt(pow(i->x()-dX,2));
+
+
+                float dy =  sqrt(pow(i->y()-a->y(),2));
+                float dy_f =  sqrt(pow(i->y()-dY,2));
+
+                //cout <<a->x()<<" "<<dx<<" "<<dx_f<<" / "<<a->y()<<" "<<dy<<" "<<dy_f<<endl;
+                if(i->goal == a->goal && i->isVisible() && (dx+dx_f)<50 && (dy+dy_f)<50&& i->x()!=a->x() && i->y()!=a->y()){
+                    //cout << i->dist<<" "<<d<<"|";
+                    if(d>i->dist){
+                        d = i->dist;
+                        achou = true;
+                        p = i;
+                    }
+                    /**/
                 }
 
 
             }
+            //cout <<endl<<a->rotation()<<endl;
             if(!achou)
-            a->move();
+                a->move();
+            else{
+
+                float dy = (p->y() - a->y());
+                float dx = p->x() -a->x();
+                float tan = atan(dy/dx)*180/3.14;
+                if(dx<0 && dy>0) tan = 180 + tan;
+                if(dy<0 && dx>0) tan = 360 + tan;
+                if(dy<0 && dx<0) tan = 180 + tan;
+
+                //cout << endl<<d <<" "<<a->rotation()<<" "<<tan<<" /// "<<dx<<"|"<<dy<<endl;
+                a->move(tan);/*
+
+                a->setLast(a->x(),a->y());
+                a->lastAngle = a->rotation();
+                a->setPos(p->x(),p->y());
+                a->setRotation(p->lastAngle);
+                               */
+            }
         }
     }
+    //cout << "dd"<<endl;
     vector<Path*> aux;
     for(Path* p : pathList){
         if(p){
