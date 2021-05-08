@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sounds/ants_soundtrack_2019.mp3</file>
+    </qresource>
+</RCC>

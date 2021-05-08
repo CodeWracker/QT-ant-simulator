@@ -13,6 +13,8 @@ class MainWindow : public QMainWindow
 private:
     bool showPaths;
     int antsNumber;
+    int pathLife;
+    QMediaPlayer * MenuMusic;
     SimulationEnv* simEnv;
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -38,11 +40,13 @@ private slots:
     void on_gitProfileBtn_clicked();
 
 
-    void on_antsSlider_sliderMoved(int position);
+    void on_antsSlider_valueChanged(int position);
 
     void on_showPathsBox_stateChanged(int arg1);
 
     void on_QuitButton_clicked();
+
+    void on_pathSlider_valueChanged(int value);
 
 private:
     Ui::MainWindow *ui;

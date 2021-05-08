@@ -28,16 +28,38 @@ private:
     int stepTime;
     bool showCMD;
     int cmd;
+    int pathLife;
     QGraphicsPixmapItem* helpImage;
+    QMediaPlayer *simMsc;
+    QMediaPlayer *menuMsc;
 public:
     SimulationEnv(QWidget *parent = 0);
+    ~SimulationEnv(){
+        delete simMsc;
+        for(Ant* a : antList)
+            delete a;
+
+        for(Colony* c : colonyList)
+            delete c;
+
+        for(Food* f : foodList)
+            delete f;
+
+        for(Path* p : pathList)
+            delete p;
+        delete timer;
+        delete helpImage;
+        delete scene;
+    }
     QGraphicsScene *scene;
-    void startSimulation(bool showPath,int antNumber);
+    void startSimulation(bool showPath,int antNumber,int pathL,QMediaPlayer *menu);
 private:
     void step();
     void mousePressEvent(QMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *event){
+        menuMsc->play();
+        simMsc->stop();
         for(Ant* a : antList)
             delete a;
         antList.clear();

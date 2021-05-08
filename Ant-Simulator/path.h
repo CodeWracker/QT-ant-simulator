@@ -15,7 +15,7 @@ public:
     int remainingSteps;
     bool isVisible(){return remainingSteps>=0;};
     Path(QGraphicsPixmapItem * parent=0);
-    Path(QGraphicsPixmapItem * parent=0,int g =0,int nX = 0, int nY = 0,int s = 0);
+    Path(QGraphicsPixmapItem * parent=0,int g =0,int nX = 0, int nY = 0,int s = 0,int l = 100);
     ~Path(){};
 };
 

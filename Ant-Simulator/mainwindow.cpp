@@ -33,9 +33,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->showPathsBox->setChecked(false);
     ui->antsSlider->setValue(10);
     antsNumber = 10;
+    ui->pathSlider->setValue(100);
+    pathLife = 100;
 
     /*Coloca na Tela de Menu*/
     ui->stackedWidget->setCurrentIndex(0);
+
+    /*Coloca a musica pra tocar*/
+    MenuMusic = new QMediaPlayer(this);
+    MenuMusic->setMedia(QUrl("qrc:/sounds/ants_soundtrack_2019.mp3"));
+    MenuMusic->play();
 
 }
 
@@ -64,7 +71,7 @@ void MainWindow::on_SimulateButton_clicked()
 {
     delete simEnv;
     simEnv = new SimulationEnv();
-    simEnv->startSimulation(showPaths,antsNumber);
+    simEnv->startSimulation(showPaths,antsNumber,pathLife,MenuMusic);
 }
 
 void MainWindow::on_MenuButton_clicked()
@@ -101,7 +108,7 @@ void MainWindow::on_gitProfileBtn_clicked() //link para o perfil no github
     QDesktopServices::openUrl(QUrl(link));
 }
 
-void MainWindow::on_antsSlider_sliderMoved(int position)
+void MainWindow::on_antsSlider_valueChanged(int position)
 {
     antsNumber = position;
     ui->antsNumber->setText(QString::number(antsNumber));
@@ -117,4 +124,10 @@ void MainWindow::on_showPathsBox_stateChanged(int arg1)
 void MainWindow::on_QuitButton_clicked()
 {
     MainWindow::close();
+}
+
+void MainWindow::on_pathSlider_valueChanged(int value)
+{
+    antsNumber = value;
+    ui->pathLife->setText(QString::number(antsNumber));
 }

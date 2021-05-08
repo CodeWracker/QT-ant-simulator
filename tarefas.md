@@ -26,7 +26,7 @@
   - [ ] Reduzir o loop dos paths projetando um circulo na formiga e avaliando só as colisões dele (nem sei se isso reduziria mesmo) - Não reduz, babaca. Vc nem mostra os paths na tela pra ter colisão
   - [ ] Melhorar a renderização das imagens
 - [ ] Adicionar a função de borracha
-- [ ] Adicionar uma musiquinha em algum lugar
+- [x] Adicionar uma musiquinha em algum lugar
 - [ ] Colocar nas configs a opção de tempo de vida dos paths
 
 ## Classes

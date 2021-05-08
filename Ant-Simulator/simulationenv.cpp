@@ -12,6 +12,14 @@ SimulationEnv::SimulationEnv(QWidget *parent )
 
     cmd = 0;
     showCMD = false;
+
+    pathLife = 150;
+
+    /*Coloca a musica pra tocar*/
+    simMsc = new QMediaPlayer(this);
+    simMsc->setMedia(QUrl("qrc:/sounds/instupendo_long_live_extended.mp3"));
+
+
     // criar scene
     scene = new QGraphicsScene();
     // fixar o tamanho em 800x600, que é infinito por definição
@@ -110,7 +118,7 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event){
 void SimulationEnv::step(){
     for(Ant* a : antList){
         if(a){
-            Path *p = new Path(nullptr,1-a->goal,a->x(),a->y(), a->steps);
+            Path *p = new Path(nullptr,1-a->goal,a->x(),a->y(), a->steps,pathLife);
 
             pathList.push_back(p);
             bool achou = false;
@@ -175,9 +183,12 @@ void SimulationEnv::step(){
     pathList = aux;
 
 }
-void SimulationEnv::startSimulation(bool showPath,int antNumber){
+void SimulationEnv::startSimulation(bool showPath,int antNumber,int pathL,QMediaPlayer *menu){
     scene->clear();
-
+    simMsc->play();
+    pathLife = pathL;
+    menuMsc = menu;
+    menuMsc->pause();
     //Adiciona a opção de help na tela
     showCMD = false;
     helpImage = new QGraphicsPixmapItem();

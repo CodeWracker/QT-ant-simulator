@@ -428,6 +428,77 @@ border-image: none;
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="config_3">
+           <property name="minimumSize">
+            <size>
+             <width>230</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Audiowide</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel#config_3{
+ color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>Path Life (Steps)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="pathLife">
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Audiowide</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel#pathLife{
+ color: white;
+}</string>
+           </property>
+           <property name="text">
+            <string>100</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="pathSlider">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QLabel" name="config_1">
@@ -489,13 +560,13 @@ border-image: none;
           <widget class="QLabel" name="antsNumber">
            <property name="minimumSize">
             <size>
-             <width>20</width>
+             <width>30</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>20</width>
+             <width>30</width>
              <height>16777215</height>
             </size>
            </property>

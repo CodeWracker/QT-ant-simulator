@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sounds/instupendo_long_live_extended.mp3</file>
+    </qresource>
+</RCC>

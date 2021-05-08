@@ -1,0 +1,11 @@
+debug/ant.o
+debug/colony.o
+debug/food.o
+debug/main.o
+debug/mainwindow.o
+debug/path.o
+debug/simulationenv.o
+debug/qrc_menuMusic.o
+debug/qrc_rsc.o
+debug/qrc_simMusic.o
+debug/moc_mainwindow.o

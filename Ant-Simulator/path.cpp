@@ -4,10 +4,10 @@ Path::Path(QGraphicsPixmapItem * parent)
 {
 
 }
-Path::Path(QGraphicsPixmapItem * parent,int g ,int nX, int nY,int s){
+Path::Path(QGraphicsPixmapItem * parent,int g ,int nX, int nY,int s,int l){
     goal = g;
     dist = s;
-    remainingSteps = 100 + 200*goal;
+    remainingSteps = l + 2*l*goal;
     if(g == 0)
         setPixmap(QPixmap(":/images/foodPath.png"));
     else
