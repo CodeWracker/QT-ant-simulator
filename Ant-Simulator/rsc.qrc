@@ -32,5 +32,6 @@
         <file>images/food-2.png</file>
         <file>images/colonyPath.png</file>
         <file>images/foodPath.png</file>
+        <file>images/SimBg.png</file>
     </qresource>
 </RCC>

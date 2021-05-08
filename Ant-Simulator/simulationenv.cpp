@@ -19,6 +19,7 @@ SimulationEnv::SimulationEnv(QWidget *parent )
    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
    // fixar o tamanho
    setFixedSize(1240, 720);
+   scene->setBackgroundBrush(QBrush(QImage(":/images/SimBg.png")));
 
    run = false;
    timer = new QTimer();
@@ -26,12 +27,12 @@ SimulationEnv::SimulationEnv(QWidget *parent )
    connect(timer, &QTimer::timeout, this, std::bind(&SimulationEnv::step, this));
 }
 void SimulationEnv::keyPressEvent(QKeyEvent *event){
-    if(event->key() == Qt::Key_Up){
+    if(event->key() == Qt::Key_Down){
         timer->stop();
         stepTime+=10;
         timer->start(stepTime);
     }
-    if(event->key() == Qt::Key_Down){
+    if(event->key() == Qt::Key_Up){
         timer->stop();
         if(stepTime-10>0)
             stepTime-=10;
@@ -87,6 +88,7 @@ void SimulationEnv::step(){
     for(Ant* a : antList){
         if(a){
             Path *p = new Path(nullptr,1-a->goal,a->x(),a->y(), a->steps);
+
             pathList.push_back(p);
             bool achou = false;
             float d = 2000;
