@@ -34,7 +34,7 @@ private:
     QMediaPlayer *menuMsc;
 public:
     SimulationEnv(QWidget *parent = 0);
-    ~SimulationEnv(){
+   /* ~SimulationEnv(){ //isso aqui da erro...
         delete simMsc;
         for(Ant* a : antList)
             delete a;
@@ -50,7 +50,7 @@ public:
         delete timer;
         delete helpImage;
         delete scene;
-    }
+    }*/
     QGraphicsScene *scene;
     void startSimulation(bool showPath,int antNumber,int pathL,QMediaPlayer *menu);
 private:

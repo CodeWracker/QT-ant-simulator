@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     antsNumber = 10;
     ui->pathSlider->setValue(100);
     pathLife = 100;
-
+    ui->pathLife->setText(QString::number(pathLife));
     /*Coloca na Tela de Menu*/
     ui->stackedWidget->setCurrentIndex(0);
 
@@ -128,6 +128,6 @@ void MainWindow::on_QuitButton_clicked()
 
 void MainWindow::on_pathSlider_valueChanged(int value)
 {
-    antsNumber = value;
-    ui->pathLife->setText(QString::number(antsNumber));
+    pathLife = value;
+    ui->pathLife->setText(QString::number(pathLife));
 }

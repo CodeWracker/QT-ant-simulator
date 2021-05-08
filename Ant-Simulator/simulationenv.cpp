@@ -92,6 +92,7 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
                     scene->addItem(p);
                 }
             }
+            simMsc->pause();
         }else{
             timer->start(stepTime);
             run = true;
@@ -100,6 +101,8 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
                     scene->removeItem(p);
                 }
             }
+
+            simMsc->play();
         }
     }
 }

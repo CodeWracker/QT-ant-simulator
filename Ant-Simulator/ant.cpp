@@ -34,7 +34,6 @@ void Ant::move(int dX, int dY){
 
         if(goal == 0 ){
             if(typeid(*i) == typeid(Food) && !food){
-                cout << "Eat"<<endl;
                 goal = 1;
                 food = true;
                 Food* f = (Food*)i;
