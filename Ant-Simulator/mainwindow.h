@@ -16,6 +16,7 @@ private:
     int pathLife;
     QMediaPlayer * MenuMusic;
     SimulationEnv* simEnv;
+    QMediaPlaylist * menuPlaylist;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();

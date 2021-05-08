@@ -32,6 +32,7 @@ private:
     QGraphicsPixmapItem* helpImage;
     QMediaPlayer *simMsc;
     QMediaPlayer *menuMsc;
+    QMediaPlaylist *simPlaylist;
 public:
     SimulationEnv(QWidget *parent = 0);
    /* ~SimulationEnv(){ //isso aqui da erro...

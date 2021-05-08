@@ -6,6 +6,7 @@
 #include <QKeyEvent>
 #include <iostream>
 #include <math.h>
+#include <QMediaPlaylist>
 using namespace std;
 SimulationEnv::SimulationEnv(QWidget *parent )
 {
@@ -16,9 +17,11 @@ SimulationEnv::SimulationEnv(QWidget *parent )
     pathLife = 150;
 
     /*Coloca a musica pra tocar*/
+    simPlaylist = new QMediaPlaylist();
+    simPlaylist->addMedia(QUrl("qrc:/sounds/instupendo_long_live_extended.mp3"));
+    simPlaylist->setPlaybackMode(QMediaPlaylist::Loop);
     simMsc = new QMediaPlayer(this);
-    simMsc->setMedia(QUrl("qrc:/sounds/instupendo_long_live_extended.mp3"));
-
+    simMsc->setPlaylist(simPlaylist);
 
     // criar scene
     scene = new QGraphicsScene();

@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 #include <QDesktopServices>
+#include <QMediaPlaylist>
 #include <QUrl>
 #include "simulationenv.h"
 using namespace std;
@@ -29,19 +30,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->backgConfig->lower();
 
     /*Inicia as configurações*/
-    showPaths = false;
-    ui->showPathsBox->setChecked(false);
+    showPaths = true;
+    ui->showPathsBox->setChecked(true);
     ui->antsSlider->setValue(10);
     antsNumber = 10;
-    ui->pathSlider->setValue(100);
-    pathLife = 100;
+    ui->pathSlider->setValue(70);
+    pathLife = 70;
     ui->pathLife->setText(QString::number(pathLife));
     /*Coloca na Tela de Menu*/
     ui->stackedWidget->setCurrentIndex(0);
 
     /*Coloca a musica pra tocar*/
+    menuPlaylist = new QMediaPlaylist();
+    menuPlaylist->addMedia(QUrl("qrc:/sounds/ants_soundtrack_2019.mp3"));
+    menuPlaylist->setPlaybackMode(QMediaPlaylist::Loop);
     MenuMusic = new QMediaPlayer(this);
-    MenuMusic->setMedia(QUrl("qrc:/sounds/ants_soundtrack_2019.mp3"));
+    MenuMusic->setPlaylist(menuPlaylist);
     MenuMusic->play();
 
 }
@@ -49,6 +53,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete simEnv;
+    delete MenuMusic;
+    delete menuPlaylist;
     delete ui;
 }
 
