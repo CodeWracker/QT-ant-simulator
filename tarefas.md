@@ -21,6 +21,7 @@
   - [x] Deixar Bonita
   - [x] Linkar com os sites</br></br>
 - [x] Corrigir o bug que crasha quando tenta simular pela 2a vez
+- [x] Mostrar os comandos durante a execução
 - [ ] Otimizar o programa
   - [ ] Reduzir o loop dos paths projetando um circulo na formiga e avaliando só as colisões dele (nem sei se isso reduziria mesmo) - Não reduz, babaca. Vc nem mostra os paths na tela pra ter colisão
   - [ ] Melhorar a renderização das imagens
