@@ -85,7 +85,6 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event){
 }
 void SimulationEnv::step(){
     for(Ant* a : antList){
-        //cout << "Penis"<<endl;
         if(a){
             Path *p = new Path(nullptr,1-a->goal,a->x(),a->y(), a->steps);
             pathList.push_back(p);
@@ -111,7 +110,6 @@ void SimulationEnv::step(){
                         achou = true;
                         p = i;
                     }
-                    /**/
                 }
 
 
