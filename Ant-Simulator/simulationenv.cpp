@@ -9,24 +9,47 @@
 using namespace std;
 SimulationEnv::SimulationEnv(QWidget *parent )
 {
-    // criar scene
-   //if(scene)
-   scene = new QGraphicsScene();
-   // fixar o tamanho em 800x600, que é infinito por definição
-   scene->setSceneRect(0, 0, 1240, 720);
-   setScene(scene);
-   setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-   setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-   // fixar o tamanho
-   setFixedSize(1240, 720);
-   scene->setBackgroundBrush(QBrush(QImage(":/images/SimBg.png")));
 
-   run = false;
-   timer = new QTimer();
-   stepTime = 50;
-   connect(timer, &QTimer::timeout, this, std::bind(&SimulationEnv::step, this));
+    cmd = 0;
+    showCMD = false;
+    // criar scene
+    scene = new QGraphicsScene();
+    // fixar o tamanho em 800x600, que é infinito por definição
+    scene->setSceneRect(0, 0, 1240, 720);
+    setScene(scene);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    // fixar o tamanho
+    setFixedSize(1240, 720);
+    scene->setBackgroundBrush(QBrush(QImage(":/images/SimBg.png")));
+
+
+
+    run = false;
+    timer = new QTimer();
+    stepTime = 50;
+    connect(timer, &QTimer::timeout, this, std::bind(&SimulationEnv::step, this));
 }
 void SimulationEnv::keyPressEvent(QKeyEvent *event){
+    if(event->key() == Qt::Key_Shift){
+        scene->removeItem(helpImage);
+        scene->addItem(helpImage);
+        if(showCMD){
+            helpImage->setPixmap(QPixmap(":/images/HelpImg.png"));
+            showCMD = false;
+        }else{
+            helpImage->setPixmap(QPixmap(":/images/cmds"+QString::number(cmd)+".png"));
+            showCMD = true;
+        }
+    }
+    if(event->key() == Qt::Key_Control){
+        cmd == 0? cmd = 1:cmd = 0;
+        if(showCMD){
+            scene->removeItem(helpImage);
+            scene->addItem(helpImage);
+            helpImage->setPixmap(QPixmap(":/images/cmds"+QString::number(cmd)+".png"));
+        }
+    }
     if(event->key() == Qt::Key_Down){
         timer->stop();
         stepTime+=10;
@@ -154,6 +177,15 @@ void SimulationEnv::step(){
 }
 void SimulationEnv::startSimulation(bool showPath,int antNumber){
     scene->clear();
+
+    //Adiciona a opção de help na tela
+    showCMD = false;
+    helpImage = new QGraphicsPixmapItem();
+    helpImage->setPixmap(QPixmap(":/images/HelpImg.png"));
+    helpImage->setPos(50,50);
+    scene->addItem(helpImage);
+
+    //inicia as configurações desta rodada
     showPaths = showPath;
     antsNumber = antNumber;
     run = true;

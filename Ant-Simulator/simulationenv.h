@@ -26,6 +26,9 @@ private:
     vector<Path*> pathList;
     bool run;
     int stepTime;
+    bool showCMD;
+    int cmd;
+    QGraphicsPixmapItem* helpImage;
 public:
     SimulationEnv(QWidget *parent = 0);
     QGraphicsScene *scene;
