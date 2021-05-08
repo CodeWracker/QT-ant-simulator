@@ -33,7 +33,8 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
     }
     if(event->key() == Qt::Key_Down){
         timer->stop();
-        stepTime-=10;
+        if(stepTime-10>0)
+            stepTime-=10;
         timer->start(stepTime);
     }
     if(event->key() == Qt::Key_Enter){
@@ -62,8 +63,10 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
         }else{
             timer->start(stepTime);
             run = true;
-            for(Path* p: pathList){
-                scene->removeItem(p);
+            if(showPaths){
+                for(Path* p: pathList){
+                    scene->removeItem(p);
+                }
             }
         }
     }

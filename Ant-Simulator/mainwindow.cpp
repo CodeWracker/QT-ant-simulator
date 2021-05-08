@@ -41,6 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete simEnv;
     delete ui;
 }
 
@@ -61,6 +62,8 @@ void MainWindow::on_ConfigsButton_clicked()
 
 void MainWindow::on_SimulateButton_clicked()
 {
+    delete simEnv;
+    simEnv = new SimulationEnv();
     simEnv->startSimulation(showPaths,antsNumber);
 }
 
