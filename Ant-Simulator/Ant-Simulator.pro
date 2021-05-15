@@ -12,6 +12,7 @@ CONFIG += c++11
 SOURCES += \
     ant.cpp \
     colony.cpp \
+    eraser.cpp \
     food.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 HEADERS += \
     ant.h \
     colony.h \
+    eraser.h \
     food.h \
     mainwindow.h \
     path.h \

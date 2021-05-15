@@ -7,6 +7,7 @@
 #include <iostream>
 #include <math.h>
 #include <QMediaPlaylist>
+#include "eraser.h"
 using namespace std;
 SimulationEnv::SimulationEnv(QWidget *parent )
 {
@@ -129,10 +130,8 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event){
         }
         else{
             if(!erasing){
-                eraserImage = new QGraphicsPixmapItem();
-                eraserImage->setPixmap(QPixmap(":/images/eraser.png"));
+                eraserImage = new Eraser(event->pos());
                 scene->addItem(eraserImage);
-                eraserImage->setPos(event->pos());
             }else{
                 if(eraserImage != NULL){
                     scene->removeItem(eraserImage);

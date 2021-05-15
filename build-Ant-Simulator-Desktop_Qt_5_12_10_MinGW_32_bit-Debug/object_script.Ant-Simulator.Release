@@ -1,5 +1,6 @@
 release/ant.o
 release/colony.o
+release/eraser.o
 release/food.o
 release/main.o
 release/mainwindow.o

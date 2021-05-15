@@ -1,5 +1,6 @@
 debug/ant.o
 debug/colony.o
+debug/eraser.o
 debug/food.o
 debug/main.o
 debug/mainwindow.o

@@ -13,7 +13,7 @@
 #include "colony.h"
 #include "food.h"
 #include "path.h"
-
+#include "eraser.h"
 #include <iostream>
 using namespace std;
 class SimulationEnv: public QGraphicsView
@@ -33,7 +33,7 @@ private:
     bool erasing;
     int pathLife;
     QGraphicsPixmapItem* helpImage;
-    QGraphicsPixmapItem* eraserImage;
+    Eraser* eraserImage;
     QMediaPlayer *simMsc;
     QMediaPlayer *menuMsc;
     QMediaPlaylist *simPlaylist;
@@ -62,7 +62,7 @@ private:
     void mouseMoveEvent(QMouseEvent *event){
         if(cmd == 1 && erasing){
             if(eraserImage != NULL){
-                eraserImage->setPos(event->pos());
+                eraserImage->erase(event->pos(),pathList,scene);
 
             }
             qDebug() << event->pos();
@@ -90,6 +90,7 @@ private:
             delete p;
         foodList.clear();
         timer->stop();
+        delete eraserImage;
     }
 };
 
