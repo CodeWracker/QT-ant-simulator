@@ -7,7 +7,7 @@
 #include <QMediaPlayer>
 #include <vector>
 using namespace std;
-class Ant: public QObject, public QGraphicsPixmapItem
+class Ant : public QObject, public QGraphicsPixmapItem
 {
 public:
     int goal; //0: Food - 1: Home
@@ -18,6 +18,7 @@ public:
     void move();
     void move(float angle);
     ~Ant(){};
+
 private:
     void move(int dX, int dY);
 };

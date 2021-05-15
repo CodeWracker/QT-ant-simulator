@@ -4,19 +4,20 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
-class Food: public QObject,public QGraphicsPixmapItem
+class Food : public QObject, public QGraphicsPixmapItem
 {
 private:
-
     int remaining;
+
 public:
-    Food(QGraphicsPixmapItem * parent=0);
-    Food(QGraphicsPixmapItem * parent=0,int nX=100, int nY=100);
+    Food(QGraphicsPixmapItem *parent = 0);
+    Food(QGraphicsPixmapItem *parent = 0, int nX = 100, int nY = 100);
     Food(){};
-    bool isAvaible(){return remaining>0;};
-    void eat(){
+    bool isAvaible() { return remaining > 0; };
+    void eat()
+    {
         remaining--;
-        setPixmap(QPixmap(":/images/food-"+QString::number(remaining)+".png"));
+        setPixmap(QPixmap(":/images/food-" + QString::number(remaining) + ".png"));
     }
     ~Food(){};
 };

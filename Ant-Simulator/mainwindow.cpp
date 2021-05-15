@@ -7,8 +7,7 @@
 #include "simulationenv.h"
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     simEnv = new SimulationEnv();
 
@@ -47,7 +46,6 @@ MainWindow::MainWindow(QWidget *parent)
     MenuMusic = new QMediaPlayer(this);
     MenuMusic->setPlaylist(menuPlaylist);
     MenuMusic->play();
-
 }
 
 MainWindow::~MainWindow()
@@ -77,7 +75,7 @@ void MainWindow::on_SimulateButton_clicked()
 {
     delete simEnv;
     simEnv = new SimulationEnv();
-    simEnv->startSimulation(showPaths,antsNumber,pathLife,MenuMusic);
+    simEnv->startSimulation(showPaths, antsNumber, pathLife, MenuMusic);
 }
 
 void MainWindow::on_MenuButton_clicked()
@@ -124,8 +122,6 @@ void MainWindow::on_showPathsBox_stateChanged(int arg1)
 {
     showPaths = arg1 == 2;
 }
-
-
 
 void MainWindow::on_QuitButton_clicked()
 {

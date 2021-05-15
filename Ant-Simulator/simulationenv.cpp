@@ -9,7 +9,7 @@
 #include <QMediaPlaylist>
 #include "eraser.h"
 using namespace std;
-SimulationEnv::SimulationEnv(QWidget *parent )
+SimulationEnv::SimulationEnv(QWidget *parent)
 {
 
     cmd = 0;
@@ -42,76 +42,100 @@ SimulationEnv::SimulationEnv(QWidget *parent )
     stepTime = 50;
     connect(timer, &QTimer::timeout, this, std::bind(&SimulationEnv::step, this));
 }
-void SimulationEnv::keyPressEvent(QKeyEvent *event){
-    if(event->key() == Qt::Key_Shift){
+void SimulationEnv::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Shift)
+    {
         scene->removeItem(helpImage);
         scene->addItem(helpImage);
-        if(showCMD){
+        if (showCMD)
+        {
             helpImage->setPixmap(QPixmap(":/images/HelpImg.png"));
             showCMD = false;
-        }else{
-            helpImage->setPixmap(QPixmap(":/images/cmds"+QString::number(cmd)+".png"));
+        }
+        else
+        {
+            helpImage->setPixmap(QPixmap(":/images/cmds" + QString::number(cmd) + ".png"));
             showCMD = true;
         }
     }
-    if(event->key() == Qt::Key_Control){
-        if(cmd == 1){
-            if(erasing){
+    if (event->key() == Qt::Key_Control)
+    {
+        if (cmd == 1)
+        {
+            if (erasing)
+            {
                 scene->removeItem(eraserImage);
                 delete eraserImage;
-
             }
             erasing = false;
             cmd = 0;
-        }else{
+        }
+        else
+        {
             cmd = 1;
         }
-        if(showCMD){
+        if (showCMD)
+        {
             scene->removeItem(helpImage);
             scene->addItem(helpImage);
-            helpImage->setPixmap(QPixmap(":/images/cmds"+QString::number(cmd)+".png"));
+            helpImage->setPixmap(QPixmap(":/images/cmds" + QString::number(cmd) + ".png"));
         }
     }
-    if(event->key() == Qt::Key_Down){
+    if (event->key() == Qt::Key_Down)
+    {
         timer->stop();
-        stepTime+=10;
+        stepTime += 10;
         timer->start(stepTime);
     }
-    if(event->key() == Qt::Key_Up){
+    if (event->key() == Qt::Key_Up)
+    {
         timer->stop();
-        if(stepTime-10>0)
-            stepTime-=10;
+        if (stepTime - 10 > 0)
+            stepTime -= 10;
         timer->start(stepTime);
     }
-    if(event->key() == Qt::Key_Enter){
-        for(Colony *c : colonyList){
-            if(!c->createdAnts){
-                for(int i = 0;i<antsNumber;i++){
-                    Ant* a = new Ant();
+    if (event->key() == Qt::Key_Enter)
+    {
+        for (Colony *c : colonyList)
+        {
+            if (!c->createdAnts)
+            {
+                for (int i = 0; i < antsNumber; i++)
+                {
+                    Ant *a = new Ant();
                     scene->addItem(a);
                     antList.push_back(a);
-                    a->setPos(c->x()+25,c->y()+25);
+                    a->setPos(c->x() + 25, c->y() + 25);
                     c->createdAnts = true;
                 }
             }
         }
     }
-    if(event->key() == Qt::Key_Space){
+    if (event->key() == Qt::Key_Space)
+    {
 
-        if(run){
+        if (run)
+        {
             timer->stop();
             run = false;
-            if(showPaths){
-                for(Path* p: pathList){
+            if (showPaths)
+            {
+                for (Path *p : pathList)
+                {
                     scene->addItem(p);
                 }
             }
             simMsc->pause();
-        }else{
+        }
+        else
+        {
             timer->start(stepTime);
             run = true;
-            if(showPaths){
-                for(Path* p: pathList){
+            if (showPaths)
+            {
+                for (Path *p : pathList)
+                {
                     scene->removeItem(p);
                 }
             }
@@ -120,20 +144,27 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
         }
     }
 }
-void SimulationEnv::mousePressEvent(QMouseEvent *event){
-    if(event->button() == Qt::LeftButton){
-        if(cmd == 0){
-            Colony *c = new Colony(nullptr,event->x(),event->y());
+void SimulationEnv::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+    {
+        if (cmd == 0)
+        {
+            Colony *c = new Colony(nullptr, event->x(), event->y());
             scene->addItem(c);
             colonyList.push_back(c);
-
         }
-        else{
-            if(!erasing){
+        else
+        {
+            if (!erasing)
+            {
                 eraserImage = new Eraser(event->pos());
                 scene->addItem(eraserImage);
-            }else{
-                if(eraserImage != NULL){
+            }
+            else
+            {
+                if (eraserImage != NULL)
+                {
                     scene->removeItem(eraserImage);
                     delete eraserImage;
                 }
@@ -141,59 +172,67 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event){
             erasing = !erasing;
         }
     }
-    if(event->button() == Qt::RightButton){
-        Food *f = new Food(nullptr,event->x(),event->y());
+    if (event->button() == Qt::RightButton)
+    {
+        Food *f = new Food(nullptr, event->x(), event->y());
         scene->addItem(f);
         foodList.push_back(f);
     }
 }
-void SimulationEnv::step(){
-    for(Ant* a : antList){
-        if(a){
-            Path *p = new Path(nullptr,1-a->goal,a->x(),a->y(), a->steps,pathLife);
+void SimulationEnv::step()
+{
+    for (Ant *a : antList)
+    {
+        if (a)
+        {
+            Path *p = new Path(nullptr, 1 - a->goal, a->x(), a->y(), a->steps, pathLife);
 
             pathList.push_back(p);
             bool achou = false;
             float d = 2000;
-            for(Path* i : pathList){
+            for (Path *i : pathList)
+            {
 
-                float dX = a->x() -50*cos(a->rotation()*3.14/180);
-                float dY = a->y()-50*sin(a->rotation()*3.14/180);
+                float dX = a->x() - 50 * cos(a->rotation() * 3.14 / 180);
+                float dY = a->y() - 50 * sin(a->rotation() * 3.14 / 180);
 
-                float dx =  sqrt(pow(i->x()-a->x(),2));
-                float dx_f =  sqrt(pow(i->x()-dX,2));
+                float dx = sqrt(pow(i->x() - a->x(), 2));
+                float dx_f = sqrt(pow(i->x() - dX, 2));
 
-
-                float dy =  sqrt(pow(i->y()-a->y(),2));
-                float dy_f =  sqrt(pow(i->y()-dY,2));
+                float dy = sqrt(pow(i->y() - a->y(), 2));
+                float dy_f = sqrt(pow(i->y() - dY, 2));
 
                 //cout <<a->x()<<" "<<dx<<" "<<dx_f<<" / "<<a->y()<<" "<<dy<<" "<<dy_f<<endl;
-                if(i->goal == a->goal && i->isVisible() && (dx+dx_f)<50 && (dy+dy_f)<50&& i->x()!=a->x() && i->y()!=a->y()){
+                if (i->goal == a->goal && i->isVisible() && (dx + dx_f) < 50 && (dy + dy_f) < 50 && i->x() != a->x() && i->y() != a->y())
+                {
                     //cout << i->dist<<" "<<d<<"|";
-                    if(d>i->dist){
+                    if (d > i->dist)
+                    {
                         d = i->dist;
                         achou = true;
                         p = i;
                     }
                 }
-
-
             }
             //cout <<endl<<a->rotation()<<endl;
-            int ran = rand()%1000;
-            if(!achou || ran<10)
+            int ran = rand() % 1000;
+            if (!achou || ran < 10)
                 a->move();
-            else{
+            else
+            {
 
                 float dy = (p->y() - a->y());
-                float dx = p->x() -a->x();
-                float tan = atan(dy/dx)*180/3.14;
-                if(dx<0 && dy>0) tan = 180 + tan;
-                if(dy<0 && dx>0) tan = 360 + tan;
-                if(dy<0 && dx<0) tan = 180 + tan;
+                float dx = p->x() - a->x();
+                float tan = atan(dy / dx) * 180 / 3.14;
+                if (dx < 0 && dy > 0)
+                    tan = 180 + tan;
+                if (dy < 0 && dx > 0)
+                    tan = 360 + tan;
+                if (dy < 0 && dx < 0)
+                    tan = 180 + tan;
 
                 //cout << endl<<d <<" "<<a->rotation()<<" "<<tan<<" /// "<<dx<<"|"<<dy<<endl;
-                a->move(tan);/*
+                a->move(tan); /*
 
                 a->setLast(a->x(),a->y());
                 a->lastAngle = a->rotation();
@@ -204,18 +243,21 @@ void SimulationEnv::step(){
         }
     }
     //cout << "dd"<<endl;
-    vector<Path*> aux;
-    for(Path* p : pathList){
-        if(p){
+    vector<Path *> aux;
+    for (Path *p : pathList)
+    {
+        if (p)
+        {
 
-            p->remainingSteps-=1;
-            if(p->isVisible()) aux.push_back(p);
+            p->remainingSteps -= 1;
+            if (p->isVisible())
+                aux.push_back(p);
         }
     }
     pathList = aux;
-
 }
-void SimulationEnv::startSimulation(bool showPath,int antNumber,int pathL,QMediaPlayer *menu){
+void SimulationEnv::startSimulation(bool showPath, int antNumber, int pathL, QMediaPlayer *menu)
+{
     scene->clear();
     simMsc->play();
     pathLife = pathL;
@@ -225,7 +267,7 @@ void SimulationEnv::startSimulation(bool showPath,int antNumber,int pathL,QMedia
     showCMD = false;
     helpImage = new QGraphicsPixmapItem();
     helpImage->setPixmap(QPixmap(":/images/HelpImg.png"));
-    helpImage->setPos(50,50);
+    helpImage->setPos(50, 50);
     scene->addItem(helpImage);
 
     //inicia as configurações desta rodada

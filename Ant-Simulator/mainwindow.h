@@ -4,7 +4,10 @@
 #include <QMainWindow>
 #include "simulationenv.h"
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui
+{
+    class MainWindow;
+}
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -14,9 +17,10 @@ private:
     bool showPaths;
     int antsNumber;
     int pathLife;
-    QMediaPlayer * MenuMusic;
-    SimulationEnv* simEnv;
-    QMediaPlaylist * menuPlaylist;
+    QMediaPlayer *MenuMusic;
+    SimulationEnv *simEnv;
+    QMediaPlaylist *menuPlaylist;
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -39,7 +43,6 @@ private slots:
     void on_lkdinBtn_clicked();
 
     void on_gitProfileBtn_clicked();
-
 
     void on_antsSlider_valueChanged(int position);
 
