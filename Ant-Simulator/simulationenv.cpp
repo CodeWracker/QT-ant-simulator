@@ -188,7 +188,7 @@ void SimulationEnv::step()
     }
 
     vector<Path *> aux;
-    cout<<pathList.size()<<endl;
+    //cout<<pathList.size()<<endl;
     for (Path *p : pathList)
     {
         if (p)

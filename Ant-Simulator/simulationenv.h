@@ -41,7 +41,7 @@ private:
 
 public:
     SimulationEnv(QWidget *parent = 0);
-    /* ~SimulationEnv(){ //isso aqui da erro...
+    ~SimulationEnv(){ //isso aqui da erro...
         delete simMsc;
         for(Ant* a : antList)
             delete a;
@@ -52,12 +52,15 @@ public:
         for(Food* f : foodList)
             delete f;
 
-        for(Path* p : pathList)
-            delete p;
+        // Por que isso não funciona?
+        for(Path* p : pathList){
+            //delete p;
+        }
+
         delete timer;
         delete helpImage;
         delete scene;
-    }*/
+    }
     QGraphicsScene *scene;
     void startSimulation(bool showPath, int antNumber, int pathL, QMediaPlayer *menu);
 
@@ -67,10 +70,7 @@ private:
         if (cmd == 1 && erasing)
         {
             if (eraserImage != NULL)
-            {
                 eraserImage->erase(event->pos(), pathList, scene,run);
-            }
-            qDebug() << event->pos();
         }
     }
     void step();

@@ -19,13 +19,13 @@ CXXFLAGS      = -fno-keep-inline-dllexport -O2 -std=gnu++11 -Wall -W -Wextra -fe
 INCPATH       = -I..\Ant-Simulator -I. -ID:\Qt\Qt5.12.10\5.12.10\mingw73_32\include -ID:\Qt\Qt5.12.10\5.12.10\mingw73_32\include\QtMultimedia -ID:\Qt\Qt5.12.10\5.12.10\mingw73_32\include\QtWidgets -ID:\Qt\Qt5.12.10\5.12.10\mingw73_32\include\QtGui -ID:\Qt\Qt5.12.10\5.12.10\mingw73_32\include\QtANGLE -ID:\Qt\Qt5.12.10\5.12.10\mingw73_32\include\QtNetwork -ID:\Qt\Qt5.12.10\5.12.10\mingw73_32\include\QtCore -Irelease -I. -ID:\Qt\Qt5.12.10\5.12.10\mingw73_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
-LIBS        =        D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Multimedia.a D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Widgets.a D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Gui.a D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Network.a D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Core.a  -lmingw32 D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libqtmain.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.6.11-win32\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
+LIBS        =        D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Multimedia.a D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Widgets.a D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Gui.a D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Network.a D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libQt5Core.a release\Ant-Simulator_resource_res.o  -lmingw32 D:\Qt\Qt5.12.10\5.12.10\mingw73_32\lib\libqtmain.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.6.11-win32\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
 QMAKE         = D:\Qt\Qt5.12.10\5.12.10\mingw73_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = release\Ant-Simulator_resource_res.o
 COPY          = copy /y
 SED           = $(QMAKE) -install sed
 COPY_FILE     = copy /y
@@ -95,8 +95,11 @@ DESTDIR_TARGET = release\Ant-Simulator.exe
 first: all
 all: Makefile.Release  release/Ant-Simulator.exe
 
-release/Ant-Simulator.exe: D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Multimedia.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Widgets.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Gui.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Network.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Core.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libqtmain.a ui_mainwindow.h $(OBJECTS) 
+release/Ant-Simulator.exe: D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Multimedia.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Widgets.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Gui.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Network.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libQt5Core.a D:/Qt/Qt5.12.10/5.12.10/mingw73_32/lib/libqtmain.a ui_mainwindow.h $(OBJECTS) release/Ant-Simulator_resource_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) @object_script.Ant-Simulator.Release  $(LIBS)
+
+release/Ant-Simulator_resource_res.o: Ant-Simulator_resource.rc
+	windres -i Ant-Simulator_resource.rc -o release\Ant-Simulator_resource_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
 	@$(QMAKE) -o Makefile.Release ..\Ant-Simulator\Ant-Simulator.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -108,6 +111,7 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) release\ant.o release\colony.o release\eraser.o release\food.o release\main.o release\mainwindow.o release\path.o release\simulationenv.o release\qrc_menuMusic.o release\qrc_rsc.o release\qrc_simMusic.o release\moc_mainwindow.o
+	-$(DEL_FILE) release\Ant-Simulator_resource_res.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -337,6 +341,7 @@ release/moc_mainwindow.cpp: ../Ant-Simulator/mainwindow.h \
 		../Ant-Simulator/colony.h \
 		../Ant-Simulator/food.h \
 		../Ant-Simulator/path.h \
+		../Ant-Simulator/eraser.h \
 		release/moc_predefs.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/bin/moc.exe
 	D:\Qt\Qt5.12.10\5.12.10\mingw73_32\bin\moc.exe $(DEFINES) --include "C:/Users/Rodrigo Ferraz Souza/Documents/Projetos/UFSC/QT-ant-simulator/build-Ant-Simulator-Desktop_Qt_5_12_10_MinGW_32_bit-Debug/release/moc_predefs.h" -ID:/Qt/Qt5.12.10/5.12.10/mingw73_32/mkspecs/win32-g++ -I"C:/Users/Rodrigo Ferraz Souza/Documents/Projetos/UFSC/QT-ant-simulator/Ant-Simulator" -ID:/Qt/Qt5.12.10/5.12.10/mingw73_32/include -ID:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtMultimedia -ID:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtGui -ID:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtCore -I. -ID:/Qt/Qt5.12.10/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.12.10/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.12.10/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.12.10/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.12.10/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.12.10/Tools/mingw730_32/i686-w64-mingw32/include ..\Ant-Simulator\mainwindow.h -o release\moc_mainwindow.cpp
@@ -686,10 +691,15 @@ release/eraser.o: ../Ant-Simulator/eraser.cpp ../Ant-Simulator/eraser.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtCore/qmetaobject.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtMultimedia/qaudio.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtNetwork/qnetworkconfiguration.h \
+		../Ant-Simulator/path.h \
 		../Ant-Simulator/ant.h \
 		../Ant-Simulator/food.h \
 		../Ant-Simulator/colony.h \
-		../Ant-Simulator/path.h
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtWidgets/QGraphicsScene \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtGui/qbrush.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtGui/qfont.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtGui/qpen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\eraser.o ..\Ant-Simulator\eraser.cpp
 
 release/food.o: ../Ant-Simulator/food.cpp ../Ant-Simulator/food.h \
@@ -935,6 +945,7 @@ release/main.o: ../Ant-Simulator/main.cpp ../Ant-Simulator/mainwindow.h \
 		../Ant-Simulator/colony.h \
 		../Ant-Simulator/food.h \
 		../Ant-Simulator/path.h \
+		../Ant-Simulator/eraser.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtWidgets/QApplication \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtWidgets/qapplication.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtCore/qcoreapplication.h \
@@ -1094,6 +1105,7 @@ release/mainwindow.o: ../Ant-Simulator/mainwindow.cpp ../Ant-Simulator/mainwindo
 		../Ant-Simulator/colony.h \
 		../Ant-Simulator/food.h \
 		../Ant-Simulator/path.h \
+		../Ant-Simulator/eraser.h \
 		ui_mainwindow.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtWidgets/QApplication \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtWidgets/qapplication.h \
@@ -1373,6 +1385,7 @@ release/simulationenv.o: ../Ant-Simulator/simulationenv.cpp ../Ant-Simulator/sim
 		../Ant-Simulator/colony.h \
 		../Ant-Simulator/food.h \
 		../Ant-Simulator/path.h \
+		../Ant-Simulator/eraser.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtGui/QKeyEvent \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtMultimedia/QMediaPlaylist \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_32/include/QtMultimedia/qmediaplaylist.h \

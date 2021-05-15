@@ -76,8 +76,8 @@ void Ant::move(int dX, int dY)
 }
 void Ant::move()
 {
-    float ran = rand() % 140;
-    float rot = rotation() + (ran - 70);
+    float ran = rand() % 120;
+    float rot = rotation() + (ran - 60);
     setRotation(rot);
     float dX = -20 * cos(rot * PI / 180);
     float dY = -10 * sin(rot * PI / 180);
