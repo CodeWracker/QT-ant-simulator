@@ -68,7 +68,7 @@ private:
         {
             if (eraserImage != NULL)
             {
-                eraserImage->erase(event->pos(), pathList, scene);
+                eraserImage->erase(event->pos(), pathList, scene,run);
             }
             qDebug() << event->pos();
         }

@@ -16,8 +16,9 @@ Eraser::Eraser(QPoint p)
     setPixmap(QPixmap(":/images/eraser.png"));
     setPos(p.x() - 20, p.y() - 20);
 }
-void Eraser::erase(QPoint p, vector<Path *> &pathList, QGraphicsScene *scene)
+void Eraser::erase(QPoint p, vector<Path *> &pathList, QGraphicsScene *scene, bool run)
 {
+    vector<Path *> aux;
     setPos(p.x(), p.y() - 20);
     for (Path *pt : pathList)
     {
@@ -26,8 +27,15 @@ void Eraser::erase(QPoint p, vector<Path *> &pathList, QGraphicsScene *scene)
             if (y() - pt->y() >= -20 && y() - pt->y() <= 20)
             {
                 pt->remainingSteps = 0;
+                if(!run)
+                scene->removeItem(pt);
                 //delete pt; //por algum motivo isso da erro
+            }else{
+                aux.push_back(pt);
             }
+        }else{
+            aux.push_back(pt);
         }
     }
+    pathList = aux;
 }

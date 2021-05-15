@@ -193,7 +193,6 @@ void SimulationEnv::step()
     {
         if (p)
         {
-
             p->remainingSteps -= 1;
             if (p->isVisible()){
                 aux.push_back(p);

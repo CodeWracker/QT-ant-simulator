@@ -13,7 +13,7 @@ class Eraser : public QObject, public QGraphicsPixmapItem
 public:
     Eraser(QGraphicsPixmapItem *parent = 0);
     Eraser(QPoint p = QPoint());
-    void erase(QPoint p, vector<Path *> &pathList, QGraphicsScene *scene);
+    void erase(QPoint p, vector<Path *> &pathList, QGraphicsScene *scene, bool run);
 };
 
 #endif // ERASER_H
