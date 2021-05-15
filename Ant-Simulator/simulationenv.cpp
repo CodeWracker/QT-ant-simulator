@@ -181,6 +181,27 @@ void SimulationEnv::mousePressEvent(QMouseEvent *event)
 }
 void SimulationEnv::step()
 {
+    for(int i = 0;i<1240;i++){
+        for(int j = 0;j<720;j++){
+            auxGrid[i][j].clear();
+        }
+    }
+
+    vector<Path *> aux;
+    cout<<pathList.size()<<endl;
+    for (Path *p : pathList)
+    {
+        if (p)
+        {
+
+            p->remainingSteps -= 1;
+            if (p->isVisible()){
+                aux.push_back(p);
+                auxGrid[int(p->x())][int(p->y())].push_back(p);
+            }
+        }
+    }
+    pathList = aux;
     for (Ant *a : antList)
     {
         if (a)
@@ -190,12 +211,33 @@ void SimulationEnv::step()
             pathList.push_back(p);
             bool achou = false;
             float d = 2000;
-            for (Path *i : pathList)
+
+            int iniX = a->x() - 60;
+            if(iniX<0)iniX = 0;
+            int fimX = a->x() + 60;
+            if(fimX>1240)fimX = 1239;
+            int iniY = a->y() - 60;
+            if(iniY<0)iniY = 0;
+            int fimY = a->y() + 60;
+            if(fimY>720)fimY = 719;
+
+            vector<Path*> auxList;
+
+            for(int i = iniX;i<fimX;i++){
+                for(int j = iniY;j<fimY;j++){
+                    for (Path *it : auxGrid[i][j]){
+                        auxList.push_back(it);
+                    }
+                }
+            }
+
+
+            for (Path *i : auxList)
             {
+
 
                 float dX = a->x() - 50 * cos(a->rotation() * 3.14 / 180);
                 float dY = a->y() - 50 * sin(a->rotation() * 3.14 / 180);
-
                 float dx = sqrt(pow(i->x() - a->x(), 2));
                 float dx_f = sqrt(pow(i->x() - dX, 2));
 
@@ -231,30 +273,11 @@ void SimulationEnv::step()
                 if (dy < 0 && dx < 0)
                     tan = 180 + tan;
 
-                //cout << endl<<d <<" "<<a->rotation()<<" "<<tan<<" /// "<<dx<<"|"<<dy<<endl;
-                a->move(tan); /*
-
-                a->setLast(a->x(),a->y());
-                a->lastAngle = a->rotation();
-                a->setPos(p->x(),p->y());
-                a->setRotation(p->lastAngle);
-                               */
+                a->move(tan);
             }
         }
     }
-    //cout << "dd"<<endl;
-    vector<Path *> aux;
-    for (Path *p : pathList)
-    {
-        if (p)
-        {
 
-            p->remainingSteps -= 1;
-            if (p->isVisible())
-                aux.push_back(p);
-        }
-    }
-    pathList = aux;
 }
 void SimulationEnv::startSimulation(bool showPath, int antNumber, int pathL, QMediaPlayer *menu)
 {

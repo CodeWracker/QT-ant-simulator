@@ -37,6 +37,7 @@ private:
     QMediaPlayer *simMsc;
     QMediaPlayer *menuMsc;
     QMediaPlaylist *simPlaylist;
+    vector<Path*> auxGrid[1240][720];
 
 public:
     SimulationEnv(QWidget *parent = 0);
