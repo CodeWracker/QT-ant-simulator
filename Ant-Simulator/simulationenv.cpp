@@ -55,11 +55,12 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
     }
     if(event->key() == Qt::Key_Control){
         if(cmd == 1){
-            if(eraserImage != NULL){
+            if(erasing){
                 scene->removeItem(eraserImage);
                 delete eraserImage;
-                erasing = false;
+
             }
+            erasing = false;
             cmd = 0;
         }else{
             cmd = 1;
