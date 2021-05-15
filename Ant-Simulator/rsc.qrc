@@ -36,5 +36,6 @@
         <file>images/HelpImg.png</file>
         <file>images/cmds0.png</file>
         <file>images/cmds1.png</file>
+        <file>images/eraser.png</file>
     </qresource>
 </RCC>

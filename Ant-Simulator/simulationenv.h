@@ -13,6 +13,8 @@
 #include "colony.h"
 #include "food.h"
 #include "path.h"
+
+#include <iostream>
 using namespace std;
 class SimulationEnv: public QGraphicsView
 {
@@ -27,9 +29,11 @@ private:
     bool run;
     int stepTime;
     bool showCMD;
-    int cmd;
+    int cmd; //0 - Colony; 1 - Eraser
+    bool erasing;
     int pathLife;
     QGraphicsPixmapItem* helpImage;
+    QGraphicsPixmapItem* eraserImage;
     QMediaPlayer *simMsc;
     QMediaPlayer *menuMsc;
     QMediaPlaylist *simPlaylist;
@@ -55,6 +59,15 @@ public:
     QGraphicsScene *scene;
     void startSimulation(bool showPath,int antNumber,int pathL,QMediaPlayer *menu);
 private:
+    void mouseMoveEvent(QMouseEvent *event){
+        if(cmd == 1 && erasing){
+            if(eraserImage != NULL){
+                eraserImage->setPos(event->pos());
+
+            }
+            qDebug() << event->pos();
+        }
+    }
     void step();
     void mousePressEvent(QMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);

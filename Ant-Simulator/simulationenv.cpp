@@ -13,7 +13,7 @@ SimulationEnv::SimulationEnv(QWidget *parent )
 
     cmd = 0;
     showCMD = false;
-
+    erasing = false;
     pathLife = 150;
 
     /*Coloca a musica pra tocar*/
@@ -34,7 +34,7 @@ SimulationEnv::SimulationEnv(QWidget *parent )
     setFixedSize(1240, 720);
     scene->setBackgroundBrush(QBrush(QImage(":/images/SimBg.png")));
 
-
+    setMouseTracking(true);
 
     run = false;
     timer = new QTimer();
@@ -54,7 +54,16 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
         }
     }
     if(event->key() == Qt::Key_Control){
-        cmd == 0? cmd = 1:cmd = 0;
+        if(cmd == 1){
+            if(eraserImage != NULL){
+                scene->removeItem(eraserImage);
+                delete eraserImage;
+                erasing = false;
+            }
+            cmd = 0;
+        }else{
+            cmd = 1;
+        }
         if(showCMD){
             scene->removeItem(helpImage);
             scene->addItem(helpImage);
@@ -111,9 +120,26 @@ void SimulationEnv::keyPressEvent(QKeyEvent *event){
 }
 void SimulationEnv::mousePressEvent(QMouseEvent *event){
     if(event->button() == Qt::LeftButton){
-        Colony *c = new Colony(nullptr,event->x(),event->y());
-        scene->addItem(c);
-        colonyList.push_back(c);
+        if(cmd == 0){
+            Colony *c = new Colony(nullptr,event->x(),event->y());
+            scene->addItem(c);
+            colonyList.push_back(c);
+
+        }
+        else{
+            if(!erasing){
+                eraserImage = new QGraphicsPixmapItem();
+                eraserImage->setPixmap(QPixmap(":/images/eraser.png"));
+                scene->addItem(eraserImage);
+                eraserImage->setPos(event->pos());
+            }else{
+                if(eraserImage != NULL){
+                    scene->removeItem(eraserImage);
+                    delete eraserImage;
+                }
+            }
+            erasing = !erasing;
+        }
     }
     if(event->button() == Qt::RightButton){
         Food *f = new Food(nullptr,event->x(),event->y());
