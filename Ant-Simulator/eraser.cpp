@@ -23,6 +23,8 @@ void Eraser::erase(QPoint p, vector<Path*> &pathList,QGraphicsScene* scene){
         if(x() - pt->x()>=-20 && x() - pt->x()<=20){
             if(y() - pt->y()>=-20 && y() - pt->y()<=20){
                 scene->removeItem(pt);
+                pt->remainingSteps = 0;
+                //delete pt; //por algum motivo isso da erro
             }
         }
     }

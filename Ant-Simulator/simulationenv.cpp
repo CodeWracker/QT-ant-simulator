@@ -19,7 +19,7 @@ SimulationEnv::SimulationEnv(QWidget *parent )
 
     /*Coloca a musica pra tocar*/
     simPlaylist = new QMediaPlaylist();
-    simPlaylist->addMedia(QUrl("qrc:/sounds/instupendo_long_live_extended.mp3"));
+    simPlaylist->addMedia(QUrl("qrc:/sounds/instupendo_long_live_extended.mp3")); //Sim eu sei, meu gosto musica é, no minimo, duvidoso
     simPlaylist->setPlaybackMode(QMediaPlaylist::Loop);
     simMsc = new QMediaPlayer(this);
     simMsc->setPlaylist(simPlaylist);
