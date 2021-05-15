@@ -22,12 +22,12 @@
   - [x] Linkar com os sites</br></br>
 - [x] Corrigir o bug que crasha quando tenta simular pela 2a vez
 - [x] Mostrar os comandos durante a execução
-- [ ] Otimizar o programa
-  - [ ] Reduzir o loop dos paths projetando um circulo na formiga e avaliando só as colisões dele (nem sei se isso reduziria mesmo) - Não reduz, babaca. Vc nem mostra os paths na tela pra ter colisão
-  - [ ] Melhorar a renderização das imagens
-- [ ] Adicionar a função de borracha
+- [x] Otimizar o programa
+  - [x] Reduzir os loops com uma matriz de vectors
+  - [x] Melhorar a renderização das imagens
+- [x] Adicionar a função de borracha
 - [x] Adicionar uma musiquinha em algum lugar
-- [ ] Colocar nas configs a opção de tempo de vida dos paths
+- [x] Colocar nas configs a opção de tempo de vida dos paths
 
 ## Classes
 
