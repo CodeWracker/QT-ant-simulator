@@ -33,7 +33,7 @@
 
 ## Apresentação
 
-- [ ] Colocar a tabela de comandos no git
+- [x] Colocar a tabela de comandos no git
 - [ ] Sobre
 - [ ] Funcionamento
   - [ ] Movimentação das formigas

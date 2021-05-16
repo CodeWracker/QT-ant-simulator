@@ -1,0 +1,12 @@
+release/ant.o
+release/colony.o
+release/eraser.o
+release/food.o
+release/main.o
+release/mainwindow.o
+release/path.o
+release/simulationenv.o
+release/qrc_menuMusic.o
+release/qrc_rsc.o
+release/qrc_simMusic.o
+release/moc_mainwindow.o
