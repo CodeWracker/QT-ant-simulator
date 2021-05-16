@@ -60,6 +60,7 @@ public:
         delete timer;
         delete helpImage;
         delete scene;
+
     }
     QGraphicsScene *scene;
     void startSimulation(bool showPath, int antNumber, int pathL, QMediaPlayer *menu);
@@ -96,7 +97,6 @@ private:
             delete p;
         foodList.clear();
         timer->stop();
-        delete eraserImage;
     }
 };
 
