@@ -188,7 +188,6 @@ void SimulationEnv::step()
     }
 
     vector<Path *> aux;
-    //cout<<pathList.size()<<endl;
     for (Path *p : pathList)
     {
         if (p)
@@ -201,6 +200,8 @@ void SimulationEnv::step()
         }
     }
     pathList = aux;
+
+    //cout<<pathList.size()<<endl;
     for (Ant *a : antList)
     {
         if (a)
@@ -221,7 +222,6 @@ void SimulationEnv::step()
             if(fimY>720)fimY = 719;
 
             vector<Path*> auxList;
-
             for(int i = iniX;i<fimX;i++){
                 for(int j = iniY;j<fimY;j++){
                     for (Path *it : auxGrid[i][j]){
@@ -230,7 +230,7 @@ void SimulationEnv::step()
                 }
             }
 
-
+            //cout << auxList.size()<<endl;
             for (Path *i : auxList)
             {
 

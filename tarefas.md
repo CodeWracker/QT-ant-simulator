@@ -34,19 +34,11 @@
 ## Apresentação
 
 - [x] Colocar a tabela de comandos no git
-- [ ] Sobre
-- [ ] Funcionamento
-  - [ ] Movimentação das formigas
-- [ ] Configurações
-- [ ] Executar o simulador e demonstrar as funções
-  - [ ] Help
-  - [ ] Colonia
-  - [ ] Comida
-  - [ ] Formiga
-  - [ ] Borracha
-  - [ ] Pause
-  - [ ] Caminhos
-- [ ] Falar sobre a forma que as formigas procuram comida com a otimização matricial e quanto ela melhora
+- [x] Menu
+- [x] Funcionamento
+  - [x] Movimentação das formigas
+- [x] Simulação
+- [x] Falar sobre a forma que as formigas procuram comida com a otimização matricial e quanto ela melhora
 
 ---
 
