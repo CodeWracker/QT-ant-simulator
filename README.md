@@ -23,3 +23,4 @@ Final Work of Programming Discipline 2: A simulator of the behavior of ants when
 | **Shift**       | SHow/Hide Command Pallette                       |
 | **Right click** | Add Colony/Use eraser                            |
 | **Left click**  | Add Food                                         |
+| **Enter**       | Release Ants                                     |
